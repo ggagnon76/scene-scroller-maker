@@ -1,0 +1,46 @@
+{
+    "SSM" : {
+        "SceneDividerUI" : {
+            "Title" : "Scene Scroller Maker: Scene Divider",
+            "Explanation1" : "This application will guide you through dividing a complete scene to make several sub-scenes from it.  The sub-scenes can then be used with the Scene Scroller module.",
+            "Explanation2" : "The algorithm uses the Fog of War to define the divisions, one piece at a time.  Your scene must be completely walled and Fog of War turned on.",
+            "Explanation3" : "The background image will be divided and saved in .webp format at a location you must choose.  Do not choose an existing module folder, as those will be overwritten when modules are updated.",
+            "Explanation4" : "This application will create a new scene compendium.  You must provide a name for this compendium.",
+            "Explanation5" : "To begin, create new divisions by clicking on the 'PLUS' button at the bottom right.",
+            "DirPath" : "Directory Path",
+            "CompName" : "Type new compendium name here"
+        },
+        "MenuButtons" : {
+            "SceneDivider" : {
+                "name" : "Scene-Divider",
+                "title" : "Divide scene into segments"
+            },
+            "TileNudge" : {
+                "name" : "Tile-Nudge",
+                "title" : "Nudge tiles by 1px"
+            },
+            "Tools" : {
+                "NudgeUp" : {
+                    "name" : "Nudge-Up",
+                    "title" : "Nudge tile UP by 1px"
+                },
+                "NudgeLeft" : {
+                    "name" : "Nudge-Left",
+                    "title" : "Nudge tile LEFT by 1px"
+                },
+                "NudgeRight" : {
+                    "name" : "Nudge-Right",
+                    "title" : "Nudge tile RIGHT by 1px"
+                },
+                "NudgeDown" : {
+                    "name" : "Nudge-Down",
+                    "title" : "Nudge tile DOWN by 1px"
+                }
+            },
+            "CreateLinks" : {
+                "name" : "Create-Links",
+                "title" : "Create standalone links"
+            }
+        }
+    }
+}

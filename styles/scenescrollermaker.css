@@ -1,0 +1,51 @@
+.ssm-app {
+    color: var(--color-text-light-highlight);
+    max-height: 90vh;
+}
+
+#ssm-scene-divider .window-content {
+    background: url(/ui/denim075.png) repeat;
+}
+
+.ssm-input-grid {
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+
+.filepicker-fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+form .ssm-input-grid button {
+    background: var(--color-text-light-highlight);
+    border: none;
+}
+
+form .ssm-input-grid p,
+form .ssm-input-grid .ssm-grid-centered {
+    grid-column: 1 / span 2;
+}
+
+form .ssm-input-grid input {
+    color: var(--color-text-light-highlight);
+}
+
+form p {
+    font-size: 125%;
+    font-family: "Times New Roman";
+}
+
+.ssm-grid-centered {
+    display: flex;
+    justify-content: center;
+}
+
+.ssm-grid-centered .button-continue {
+    width: 150px;
+    margin-top: 15px;
+}
