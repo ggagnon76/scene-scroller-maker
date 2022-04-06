@@ -5,10 +5,21 @@
             "Explanation1" : "This application will guide you through dividing a complete scene to make several sub-scenes from it.  The sub-scenes can then be used with the Scene Scroller module.",
             "Explanation2" : "The algorithm uses the Fog of War to define the divisions, one piece at a time.  Your scene must be completely walled and Fog of War turned on.",
             "Explanation3" : "The background image will be divided and saved in .webp format at a location you must choose.  Do not choose an existing module folder, as those will be overwritten when modules are updated.",
+            "BackgroundSaveLocation": "Sub-scene background (.WEBP) save location:",
             "Explanation4" : "This application will create a new scene compendium.  You must provide a name for this compendium.",
+            "CompendiumName": "New Compendium Name:",
             "Explanation5" : "To begin, create new divisions by clicking on the 'PLUS' button at the bottom right.",
             "DirPath" : "Directory Path",
-            "CompName" : "Type new compendium name here"
+            "CompName" : "Type new compendium name here",
+            "SubSceneName" : "Enter new Sub-Scene name here",
+            "Explanation6": "Enter a sub-scene name then click on 'Continue' to begin defining the sub-scene area.",
+            "SubSceneNameLabel": "Name of new sub-scene:",
+            "NewDivisionLabel": "Create new division:",
+            "ErrorNoSubSceneName": "Enter a sub-scene name before continuing.",
+            "ErrorDivNotFinish": "Finish the in-work Division before creating new ones.",
+            "ErrorNoCompName": "Enter a name for the new compendium before continuing.",
+            "Explanation7": "Place a token with vision in the scene.  Drag the token around to explore the areas that will define this sub-scene.",
+            "Explanation8": "The explored area in the Fog of War will define the bounding box for the new sub-scene."
         },
         "MenuButtons" : {
             "SceneDivider" : {

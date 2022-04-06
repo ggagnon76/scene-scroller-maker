@@ -7,9 +7,11 @@
     background: url(/ui/denim075.png) repeat;
 }
 
-.ssm-input-grid {
+.ssm-input-grid,
+.ssm-div-card {
     display: grid;
     grid-template-columns: 50% auto;
+    align-items: center;
 }
 
 .filepicker-fields {
@@ -21,17 +23,21 @@
     padding-bottom: 5px;
 }
 
-form .ssm-input-grid button {
+form .ssm-input-grid button,
+form .ssm-div-card button,
+form .ssm-dividing-continue button {
     background: var(--color-text-light-highlight);
     border: none;
 }
 
 form .ssm-input-grid p,
-form .ssm-input-grid .ssm-grid-centered {
+form .ssm-input-grid .ssm-grid-centered,
+form .ssm-div-card .ssm-grid-centered {
     grid-column: 1 / span 2;
 }
 
-form .ssm-input-grid input {
+form .ssm-input-grid input,
+form .ssm-div-card input {
     color: var(--color-text-light-highlight);
 }
 
@@ -40,12 +46,32 @@ form p {
     font-family: "Times New Roman";
 }
 
-.ssm-grid-centered {
+.ssm-grid-centered,
+.ssm-dividing-continue {
     display: flex;
     justify-content: center;
 }
 
-.ssm-grid-centered .button-continue {
+.ssm-grid-centered .button-continue,
+form .button-continue {
     width: 150px;
     margin-top: 15px;
+}
+
+.ssm-input-grid .button-new-div {
+    width: 30px;
+    margin-top: 10px;
+}
+
+.ssm-app ol {
+    padding: 0;
+    list-style-type: none;
+}
+
+.ssm-app ol li {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid var(--color-text-light-highlight);
+    border-radius: 5px;
+    box-shadow: 0 0 10px #642700;
 }

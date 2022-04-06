@@ -6,32 +6,67 @@
             <p>{{explanation3}}</p>
             <hr />
         {{/unless}}
-        <div class="ssm-input-grid">
-            <label>Sub-scene background save location: </label>
-            <div class="filepicker-fields">
-                {{filePicker target="pth" type="folder"}}
-                <input type="text" name="pth" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
+        {{#if isDividing}}
+            <p>{{explanation7}}</p>
+            <p>{{explanation8}}</p>
+            <div class="ssm-dividing-continue">
+                <button type="button" id="dvdg-continue" class="button-continue">Continue</button>
             </div>
-        </div>
-        {{#if hasPath}}
-            {{#unless hasCompName}}
-                <hr />
-                <p>{{explanation4}}</p>
-            {{/unless}}
+        {{else}}
             <div class="ssm-input-grid">
-                <label>Compendium Name: </label>
-                <input type="text" id="comp-input" name="comp-name" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
-                {{#unless hasCompName}}
-                    <div class="ssm-grid-centered">
-                        <button type="button" id="comp-continue" class="button-continue">Continue</button>
-                    </div>  
-                {{/unless}}
+                <label>{{localize 'SSM.SceneDividerUI.BackgroundSaveLocation'}}</label>
+                <div class="filepicker-fields">
+                    {{filePicker target="pth" type="folder"}}
+                    <input type="text" name="pth" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
+                </div>
             </div>
-            {{#if hasCompName}}
-                <hr />
-                <p>{{explanation5}}</p>
+            {{#if hasPath}}
+                {{#unless hasCompName}}
+                    <hr />
+                    <p>{{explanation4}}</p>
+                {{/unless}}
+                <div class="ssm-input-grid">
+                    <label>{{localize 'SSM.SceneDividerUI.CompendiumName'}}</label>
+                    <input type="text" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
+                    {{#unless hasCompName}}
+                        <div class="ssm-grid-centered">
+                            <button type="button" id="comp-continue" class="button-continue">Continue</button>
+                        </div>  
+                    {{/unless}}
+                </div>
+                {{#if hasCompName}}
+                    <hr />
+                    {{#unless hasInWorkDivision}}
+                        <p>{{explanation5}}</p>
+                    {{/unless}}
+                    {{#if hasInWorkDivision}}
+                        <p>{{explanation6}}</p>
+                        <div>
+                            <ol>
+                                <li class="ssm-div-card">
+                                    <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
+                                    <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
+                                    <div class="ssm-grid-centered">
+                                        <button type="button" id="div-continue" class="button-continue">Continue</button>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <hr />
+                    {{/if}}
+                    {{#unless hasInWorkDivision}}
+                        <div class="ssm-input-grid">
+                            <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                            <div class="filepicker-fields">
+                                <button type="button" id="create-div" class="button-new-div">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    {{/unless}}
+                {{/if}}
             {{/if}}
+            </div>
         {{/if}}
-        </div>
     </form>
 </section>
