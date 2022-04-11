@@ -19,7 +19,8 @@
             "ErrorDivNotFinish": "Finish the in-work Division before creating new ones.",
             "ErrorNoCompName": "Enter a name for the new compendium before continuing.",
             "Explanation7": "Place a token with vision in the scene.  Drag the token around to explore the areas that will define this sub-scene.",
-            "Explanation8": "The explored area in the Fog of War will define the bounding box for the new sub-scene."
+            "Explanation8": "The explored area in the Fog of War will define the bounding box for the new sub-scene.",
+            "DivisionLabel": "Sub-scene:"
         },
         "MenuButtons" : {
             "SceneDivider" : {

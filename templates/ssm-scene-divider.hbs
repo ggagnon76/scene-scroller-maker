@@ -1,14 +1,14 @@
 <section class="ssm-app">
     <form>
         {{#unless hasPath}}
-            <p>{{explanation1}}</p>
-            <p>{{explanation2}}</p>
-            <p>{{explanation3}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation1'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation2'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation3'}}</p>
             <hr />
         {{/unless}}
         {{#if isDividing}}
-            <p>{{explanation7}}</p>
-            <p>{{explanation8}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation7'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation8'}}</p>
             <div class="ssm-dividing-continue">
                 <button type="button" id="dvdg-continue" class="button-continue">Continue</button>
             </div>
@@ -23,7 +23,7 @@
             {{#if hasPath}}
                 {{#unless hasCompName}}
                     <hr />
-                    <p>{{explanation4}}</p>
+                    <p>{{localize 'SSM.SceneDividerUI.Explanation4'}}</p>
                 {{/unless}}
                 <div class="ssm-input-grid">
                     <label>{{localize 'SSM.SceneDividerUI.CompendiumName'}}</label>
@@ -36,22 +36,31 @@
                 </div>
                 {{#if hasCompName}}
                     <hr />
-                    {{#unless hasInWorkDivision}}
-                        <p>{{explanation5}}</p>
+                    {{#if hasDivisions}}
+                        <ol>
+                            {{#each divisions}}
+                                <li class="ssm-div-card">
+                                    <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
+                                    <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}" disabled/>
+                                </li>
+                            {{/each}}
+                        </ol>
+                        <hr />
+                    {{/if}}
+                    {{#unless hasDivisions}}
+                        <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
                     {{/unless}}
                     {{#if hasInWorkDivision}}
-                        <p>{{explanation6}}</p>
-                        <div>
-                            <ol>
-                                <li class="ssm-div-card">
-                                    <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
-                                    <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
-                                    <div class="ssm-grid-centered">
-                                        <button type="button" id="div-continue" class="button-continue">Continue</button>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
+                        <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
+                        <ol>
+                            <li class="ssm-div-card">
+                                <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
+                                <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
+                                <div class="ssm-grid-centered">
+                                    <button type="button" id="div-continue" class="button-continue">Continue</button>
+                                </div>
+                            </li>
+                        </ol>
                         <hr />
                     {{/if}}
                     {{#unless hasInWorkDivision}}
