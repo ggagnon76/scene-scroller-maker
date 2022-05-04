@@ -54,6 +54,55 @@
                 "name" : "Create-Links",
                 "title" : "Create standalone links"
             }
+        },
+        "T2P_Errors" : {
+            "GMFOSS" : "Generating mask from other sub scene polygons failed.",
+            "gmfoss" : {
+                "title" : "Review Mask Texture.",
+                "content" : "<p>Click YES to continue if explored texture to omit (black) is correct.</p><p>Click NO to abort execution if texture is incorrect.</p>"
+            },
+            "GPD" : "Extracting pixel data from explored texture failed.",
+            "gpd" : {
+                "title" : "Review Texture from pixel data.",
+                "content" : "<p>Click YES to continue if explored texture is correct.</p><p>Click NO to abort execution if texture is incorrect.</p>"
+            },
+            "vp" : {
+                "title" : "Review pixel errors.",
+                "content1" : "<p>Pixel Errors: ",
+                "content2" : ".</p><p>Current pixel RGBA threshold from 0 or 255: ",
+                "content3" : ".</p><p>Click YES to increase range by 5 and try again.</p><p>Otherwise, click NO to abort.</p>"
+            },
+            "EPP" : "Extracting perimeter pixels from pixel data failed.",
+            "epp" : {
+                "title" : "Review Perimeter Pixels.",
+                "content" : "<p>Click YES to continue if perimeter is correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            },
+            "EVFW" : "Extracting vertices from wall data failed.",
+            "evfw" : {
+                "title" : "Review Vertices extracted from wall data.",
+                "content" : "<p>Click YES to continue if vertices are correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            },
+            "RNPW" : "Removing walls with coordinates not on the perimeter failed.",
+            "rnpw" : {
+                "title" : "Review Vertices after inner and dangling walls removed.",
+                "content" : "<p>Click YES to continue if vertices are correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            },
+            "RSSV" : "Removing in-line vertices failed.",
+            "rssv" : {
+                "title" : "Review Vertices after inline vertices removed.",
+                "content" : "<p>Click YES to continue if vertices are correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            },
+            "ABV" : "Adding vertices on boundaries failed.",
+            "abv" : {
+                "title" : "Review after boundary vertices added.",
+                "content" : "<p>Click YES to continue if vertices are correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            },
+            "LFV" : "Linking final vertices failed.",
+            "PVD" : "Preparing vertex data failed.",
+            "pvd" : {
+                "title" : "Review perimeter generated from vertices.",
+                "content" : "<p>Click YES to continue if the perimeter is correct.</p><p>Otherwise, click NO to abort execution.</p>"
+            }
         }
     }
 }
