@@ -9,9 +9,14 @@
         {{#if isDividing}}
             <p>{{localize 'SSM.SceneDividerUI.Explanation7'}}</p>
             <p>{{localize 'SSM.SceneDividerUI.Explanation8'}}</p>
-            <div class="ssm-dividing-continue">
-                <button type="button" id="dvdg-continue" class="button-continue">Continue</button>
-            </div>
+            {{#unless isExplored}}
+                <p>{{localize 'SSM.SceneDividerUI.Explanation9'}}</p>
+            {{/unless}}
+            {{#if isExplored}}
+                <div class="ssm-dividing-continue">
+                    <button type="button" id="dvdg-continue" class="button-continue">Continue</button>
+                </div>
+            {{/if}}
         {{else}}
             <div class="ssm-input-grid">
                 <label>{{localize 'SSM.SceneDividerUI.BackgroundSaveLocation'}}</label>
@@ -39,9 +44,10 @@
                     {{#if hasDivisions}}
                         <ol>
                             {{#each divisions}}
-                                <li class="ssm-div-card">
+                                <li class="ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
                                     <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
                                     <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}" disabled/>
+                                    <button type="button" class="division-trash"><i class="fas fa-trash"></i></button>
                                 </li>
                             {{/each}}
                         </ol>
@@ -53,7 +59,7 @@
                     {{#if hasInWorkDivision}}
                         <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
                         <ol>
-                            <li class="ssm-div-card">
+                            <li class="ssm-input-grid">
                                 <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
                                 <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
                                 <div class="ssm-grid-centered">

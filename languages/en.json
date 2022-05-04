@@ -18,8 +18,9 @@
             "ErrorNoSubSceneName": "Enter a sub-scene name before continuing.",
             "ErrorDivNotFinish": "Finish the in-work Division before creating new ones.",
             "ErrorNoCompName": "Enter a name for the new compendium before continuing.",
-            "Explanation7": "Place a token with vision in the scene.  Drag the token around to explore the areas that will define this sub-scene.",
+            "Explanation7": "Click and drag cursor to reveal Fog of War.",
             "Explanation8": "The explored area in the Fog of War will define the bounding box for the new sub-scene.",
+            "Explanation9" : "NOTE:  You must drag the cursor to spawn the continue button.  A click is not sufficient.",
             "DivisionLabel": "Sub-scene:"
         },
         "MenuButtons" : {

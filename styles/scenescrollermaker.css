@@ -1,16 +1,21 @@
 .ssm-app {
     color: var(--color-text-light-highlight);
-    max-height: 90vh;
+    max-height: 50vh;
 }
 
 #ssm-scene-divider .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
-.ssm-input-grid,
-.ssm-div-card {
+.ssm-input-grid {
     display: grid;
     grid-template-columns: 50% auto;
+    align-items: center;
+}
+
+.ssm-div-card {
+    display: grid;
+    grid-template-columns: 75px auto 30px;
     align-items: center;
 }
 
@@ -69,9 +74,9 @@ form .button-continue {
 }
 
 .ssm-app ol li {
-    margin: 10px;
+    margin: 0 0 5px 10px;
     padding: 5px;
     border: 1px solid var(--color-text-light-highlight);
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0 0 10px #642700;
 }
