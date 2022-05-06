@@ -21,8 +21,8 @@
             <div class="ssm-input-grid">
                 <label>{{localize 'SSM.SceneDividerUI.BackgroundSaveLocation'}}</label>
                 <div class="filepicker-fields">
-                    {{filePicker target="pth" type="folder"}}
-                    <input type="text" name="pth" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
+                    {{filePicker target="imagePath" type="folder"}}
+                    <input type="text" name="imagePath" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
                 </div>
             </div>
             {{#if hasPath}}
@@ -32,7 +32,7 @@
                 {{/unless}}
                 <div class="ssm-input-grid">
                     <label>{{localize 'SSM.SceneDividerUI.CompendiumName'}}</label>
-                    <input type="text" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
+                    <input type="text" name="compendiumName" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
                     {{#unless hasCompName}}
                         <div class="ssm-grid-centered">
                             <button type="button" id="comp-continue" class="button-continue">Continue</button>
@@ -52,6 +52,9 @@
                             {{/each}}
                         </ol>
                         <hr />
+                        <div class="ssm-grid-centered">
+                            <button type="submit" id="ssm-sd-submit">Create Compendium With Sub-Scenes</button>
+                        </div>
                     {{/if}}
                     {{#unless hasDivisions}}
                         <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>

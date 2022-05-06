@@ -30,9 +30,14 @@
 
 form .ssm-input-grid button,
 form .ssm-div-card button,
-form .ssm-dividing-continue button {
+form .ssm-dividing-continue button,
+form #ssm-sd-submit {
     background: var(--color-text-light-highlight);
     border: none;
+}
+
+form #ssm-sd-submit {
+    width: 250px;
 }
 
 form .ssm-input-grid p,
