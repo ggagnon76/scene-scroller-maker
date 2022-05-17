@@ -14,7 +14,9 @@
             {{/unless}}
             {{#if isExplored}}
                 <div class="ssm-dividing-continue">
-                    <button type="button" id="dvdg-continue" class="button-continue">Continue</button>
+                    <button type="button" id="dvdg-continue" class="button-continue">
+                        {{localize 'SSM.SceneDividerUI.Continue'}}
+                    </button>
                 </div>
             {{/if}}
         {{else}}
@@ -35,7 +37,9 @@
                     <input type="text" name="compendiumName" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
                     {{#unless hasCompName}}
                         <div class="ssm-grid-centered">
-                            <button type="button" id="comp-continue" class="button-continue">Continue</button>
+                            <button type="button" id="comp-continue" class="button-continue">
+                                {{localize 'SSM.SceneDividerUI.Continue'}}
+                            </button>
                         </div>  
                     {{/unless}}
                 </div>
@@ -53,7 +57,9 @@
                         </ol>
                         <hr />
                         <div class="ssm-grid-centered">
-                            <button type="submit" id="ssm-sd-submit">Create Compendium With Sub-Scenes</button>
+                            <button type="submit" id="ssm-sd-submit">
+                                {{localize 'SSM.SceneDividerUI.CompCreate'}}
+                            </button>
                         </div>
                     {{/if}}
                     {{#unless hasInWorkDivision}}

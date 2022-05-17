@@ -24,7 +24,10 @@
             "DivisionLabel": "Sub-scene:",
             "ConfirmUsePackTitle": "Use this pack?",
             "ConfirmUsePack1": "Compendium pack ",
-            "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?"
+            "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?",
+            "Continue": "Continue",
+            "Processing": "Processing",
+            "CompCreate" : "Create Compendium With Sub-Scenes"
         },
         "MenuButtons" : {
             "SceneDivider" : {
