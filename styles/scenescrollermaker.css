@@ -13,6 +13,17 @@
     align-items: center;
 }
 
+.ssm-new-div {
+    display: grid;
+    grid-template-columns: auto 30px;
+    align-items: center;
+    justify-content: right;
+}
+
+.ssm-new-div label {
+    margin: 0 10px 0 0;
+}
+
 .ssm-div-card {
     display: grid;
     grid-template-columns: 75px auto 30px;
@@ -29,6 +40,7 @@
 }
 
 form .ssm-input-grid button,
+form .ssm-new-div button,
 form .ssm-div-card button,
 form .ssm-dividing-continue button,
 form #ssm-sd-submit {

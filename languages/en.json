@@ -8,7 +8,7 @@
             "BackgroundSaveLocation": "Sub-scene background (.WEBP) save location:",
             "Explanation4" : "This application will create a new scene compendium.  You must provide a name for this compendium.",
             "CompendiumName": "New Compendium Name:",
-            "Explanation5" : "To begin, create new divisions by clicking on the 'PLUS' button at the bottom right.",
+            "Explanation5" : "Create new divisions by clicking on the 'PLUS' button at the bottom right.",
             "DirPath" : "Directory Path",
             "CompName" : "Type new compendium name here",
             "SubSceneName" : "Enter new Sub-Scene name here",

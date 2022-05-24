@@ -55,16 +55,37 @@
                                 </li>
                             {{/each}}
                         </ol>
+                        {{#unless hasInWorkDivision}}
+                            <div class="ssm-new-div">
+                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                                <div class="filepicker-fields">
+                                    <button type="button" id="create-div" class="button-new-div">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {{/unless}}
                         <hr />
-                        <div class="ssm-grid-centered">
-                            <button type="submit" id="ssm-sd-submit">
-                                {{localize 'SSM.SceneDividerUI.CompCreate'}}
-                            </button>
-                        </div>
+                        {{#unless hasInWorkDivision}}
+                            <div class="ssm-grid-centered">
+                                <button type="submit" id="ssm-sd-submit">
+                                    {{localize 'SSM.SceneDividerUI.CompCreate'}}
+                                </button>
+                            </div>
+                        {{/unless}}
+                    {{else}}
+                        {{#unless hasInWorkDivision}}
+                            <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
+                            <div class="ssm-new-div">
+                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                                <div class="filepicker-fields">
+                                    <button type="button" id="create-div" class="button-new-div">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {{/unless}}
                     {{/if}}
-                    {{#unless hasInWorkDivision}}
-                        <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
-                    {{/unless}}
                     {{#if hasInWorkDivision}}
                         <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
                         <ol>
@@ -72,22 +93,14 @@
                                 <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
                                 <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
                                 <div class="ssm-grid-centered">
-                                    <button type="button" id="div-continue" class="button-continue">Continue</button>
+                                    <button type="button" id="div-continue" class="button-continue">
+                                        {{localize 'SSM.SceneDividerUI.Continue'}}
+                                    </button>
                                 </div>
                             </li>
                         </ol>
                         <hr />
                     {{/if}}
-                    {{#unless hasInWorkDivision}}
-                        <div class="ssm-input-grid">
-                            <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
-                            <div class="filepicker-fields">
-                                <button type="button" id="create-div" class="button-new-div">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    {{/unless}}
                 {{/if}}
             {{/if}}
             </div>
