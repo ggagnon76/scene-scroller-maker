@@ -1,0 +1,21 @@
+<section class="ssm-app">
+    <form>
+        <div class="ssm-input-grid">
+            <label>{{localize 'SSM.ConvertImageUI.Label'}}</label>
+            <div class="filepicker-fields">
+                {{filePicker target="imagePath" type="image"}}
+                <input type="text" name="imagePath"/>
+            </div>
+        </div>
+        <div class="ssm-compression-slider">
+            <label>{{localize 'SSM.ConvertImageUI.Compression'}}</label>
+            <input type="range" name="compression" value="{{compression}}" min="0.8" max="1.0" step="0.01"/>
+            <span class="range-value">{{compression}}</span>
+        </div>
+        <div class="ssm-grid-centered">
+            <button type="submit" id="ssm-ciui-submit" name="submit" class="button-continue">
+                {{localize 'SSM.ConvertImageUI.Submit'}}
+            </button>
+        </div>
+    </form>
+</section>

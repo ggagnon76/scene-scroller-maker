@@ -29,16 +29,54 @@
             "Processing": "Processing",
             "CompCreate" : "Create Compendium With Sub-Scenes"
         },
+        "ConvertImageUI" : {
+            "Title" : "Image File Picker",
+            "Label" : "Image File Path:",
+            "Compression" : "Compression percentage:",
+            "Submit" : "Submit"
+        },
         "MenuButtons" : {
-            "SceneDivider" : {
-                "name" : "Scene-Divider",
-                "title" : "Divide scene into segments"
+            "ImageTools" : {
+                "name" : "Image Tools",
+                "title" : "Convert to .webP, resize and/or crop."
             },
             "TileNudge" : {
                 "name" : "Tile-Nudge",
                 "title" : "Nudge tiles by 1px"
             },
+            "SceneTools" : {
+                "name" : "Scene-Editing-Tools",
+                "title" : "Edit entire scenes"
+            },
             "Tools" : {
+                "ConvertBackground" : {
+                    "name" : "Convert-Background",
+                    "title" : "Convert Scene Background to .webp"
+                },
+                "ScaleScene" : {
+                    "name" : "Scale-Entire-Scene",
+                    "title" : "Scale everything in a scene"
+                },
+                "ConvertImgFile" : {
+                    "name" : "Convert-Image-File",
+                    "title" : "Select an image file to convert to .webp"
+                },
+                "ConvertImgFolder" : {
+                    "name" : "Convert-Images-In-Folder",
+                    "title" : "Convert all images in folder to .webp"
+                },
+                "SceneDivider" : {
+                    "name" : "Scene-Divider",
+                    "title" : "Divide scene into smaller scenes (sub-scenes)"
+                },
+                "ResizeImg" : {
+                    "name" : "Resize-Image",
+                    "title" : "Resize an image"
+                },
+                "CropImg" : {
+                    "name" : "Crop-Image",
+                    "title" : "Crop an image"
+                },
                 "NudgeUp" : {
                     "name" : "Nudge-Up",
                     "title" : "Nudge tile UP by 1px"

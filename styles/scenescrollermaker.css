@@ -3,13 +3,14 @@
     max-height: 50vh;
 }
 
-#ssm-scene-divider .window-content {
+#ssm-scene-divider .window-content,
+#ssm-convert-image .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
 .ssm-input-grid {
     display: grid;
-    grid-template-columns: 50% auto;
+    grid-template-columns: 40% auto;
     align-items: center;
 }
 
@@ -22,6 +23,20 @@
 
 .ssm-new-div label {
     margin: 0 10px 0 0;
+}
+
+.ssm-compression-slider {
+    display: grid;
+    grid-template-columns: 40% auto 40px;
+    align-items: center;
+}
+
+.ssm-compression-slider span {
+    justify-self: center;
+}
+
+.ssm-app .ssm-compression-slider .range-value {
+    border: none;
 }
 
 .ssm-div-card {
@@ -43,7 +58,8 @@ form .ssm-input-grid button,
 form .ssm-new-div button,
 form .ssm-div-card button,
 form .ssm-dividing-continue button,
-form #ssm-sd-submit {
+form #ssm-sd-submit,
+form #ssm-ciui-submit {
     background: var(--color-text-light-highlight);
     border: none;
 }
