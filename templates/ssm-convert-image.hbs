@@ -1,17 +1,29 @@
 <section class="ssm-app">
     <form>
-        <div class="ssm-input-grid">
-            <label>{{localize 'SSM.ConvertImageUI.Label'}}</label>
-            <div class="filepicker-fields">
-                {{filePicker target="imagePath" type="image"}}
-                <input type="text" name="imagePath"/>
+        {{#if isBatch}}
+            <div class="ssm-input-grid">
+                <label>{{localize 'SSM.ConvertImageUI.Label.folder'}}</label>
+                <div class="filepicker-fields">
+                    {{filePicker target="imagePath" type="folder"}}
+                    <input type="text" name="imagePath"/>
+                </div>
             </div>
-        </div>
-        <div class="ssm-compression-slider">
-            <label>{{localize 'SSM.ConvertImageUI.Compression'}}</label>
-            <input type="range" name="compression" value="{{compression}}" min="0.8" max="1.0" step="0.01"/>
-            <span class="range-value">{{compression}}</span>
-        </div>
+        {{else}}
+            <div class="ssm-input-grid">
+                <label>{{localize 'SSM.ConvertImageUI.Label.image'}}</label>
+                <div class="filepicker-fields">
+                    {{filePicker target="imagePath" type="image"}}
+                    <input type="text" name="imagePath"/>
+                </div>
+            </div>
+        {{/if}}
+        {{#if isCompression}}
+            <div class="ssm-compression-slider">
+                <label>{{localize 'SSM.ConvertImageUI.Compression'}}</label>
+                <input type="range" name="compression" value="{{compression}}" min="0.8" max="1.0" step="0.01"/>
+                <span class="range-value">{{compression}}</span>
+            </div>
+        {{/if}}
         <div class="ssm-grid-centered">
             <button type="submit" id="ssm-ciui-submit" name="submit" class="button-continue">
                 {{localize 'SSM.ConvertImageUI.Submit'}}

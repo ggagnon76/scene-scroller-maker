@@ -4,7 +4,8 @@
 }
 
 #ssm-scene-divider .window-content,
-#ssm-convert-image .window-content {
+#ssm-convert-image .window-content,
+#ssm-resize-image .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
@@ -19,6 +20,12 @@
     grid-template-columns: auto 30px;
     align-items: center;
     justify-content: right;
+}
+
+.ssm-resize-sizes {
+    display: grid;
+    grid-template-columns: 100px auto 100px auto;
+    align-items: center;
 }
 
 .ssm-new-div label {
@@ -54,12 +61,18 @@
     padding-bottom: 5px;
 }
 
+.ssm-resize-sizes input[type="number"] {
+    width: 50px;
+}
+
 form .ssm-input-grid button,
 form .ssm-new-div button,
 form .ssm-div-card button,
 form .ssm-dividing-continue button,
 form #ssm-sd-submit,
-form #ssm-ciui-submit {
+form #ssm-ciui-submit,
+form .ssm-resize-sizes input,
+form #ssm-riui-submit {
     background: var(--color-text-light-highlight);
     border: none;
 }

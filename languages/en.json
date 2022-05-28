@@ -31,9 +31,20 @@
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",
-            "Label" : "Image File Path:",
+            "Label" : {
+                "image" : "Image File Path:",
+                "folder" : "Path to image folder:"
+            },
             "Compression" : "Compression percentage:",
             "Submit" : "Submit"
+        },
+        "ResizeImageUI" : {
+            "Title" : "Resize Image Controls and Submit",
+            "Label" : {
+                "width" : "Image Width:",
+                "height" : "Image Height:"
+            },
+            "Instructions1" : "If the image needs to be resized larger than the scene size, then manually resize the scene.  The final image size MUST be fully contained in the scene."
         },
         "MenuButtons" : {
             "ImageTools" : {
