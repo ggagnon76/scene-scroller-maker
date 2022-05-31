@@ -5,7 +5,8 @@
 
 #ssm-scene-divider .window-content,
 #ssm-convert-image .window-content,
-#ssm-resize-image .window-content {
+#ssm-resize-image .window-content,
+#ssm-crop-image .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
@@ -72,7 +73,8 @@ form .ssm-dividing-continue button,
 form #ssm-sd-submit,
 form #ssm-ciui-submit,
 form .ssm-resize-sizes input,
-form #ssm-riui-submit {
+form #ssm-riui-submit,
+form #ssm-ciui-submit {
     background: var(--color-text-light-highlight);
     border: none;
 }

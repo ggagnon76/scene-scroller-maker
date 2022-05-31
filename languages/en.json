@@ -1,5 +1,8 @@
 {
     "SSM" : {
+        "Continue": "Continue",
+        "Processing": "Processing",
+        "Submit" : "Submit",
         "SceneDividerUI" : {
             "Title" : "Scene Scroller Maker: Scene Divider",
             "Explanation1" : "This application will guide you through dividing a complete scene to make several sub-scenes from it.  The sub-scenes can then be used with the Scene Scroller module.",
@@ -25,8 +28,6 @@
             "ConfirmUsePackTitle": "Use this pack?",
             "ConfirmUsePack1": "Compendium pack ",
             "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?",
-            "Continue": "Continue",
-            "Processing": "Processing",
             "CompCreate" : "Create Compendium With Sub-Scenes"
         },
         "ConvertImageUI" : {
@@ -35,8 +36,7 @@
                 "image" : "Image File Path:",
                 "folder" : "Path to image folder:"
             },
-            "Compression" : "Compression percentage:",
-            "Submit" : "Submit"
+            "Compression" : "Compression percentage:"
         },
         "ResizeImageUI" : {
             "Title" : "Resize Image Controls and Submit",
@@ -45,6 +45,11 @@
                 "height" : "Image Height:"
             },
             "Instructions1" : "If the image needs to be resized larger than the scene size, then manually resize the scene.  The final image size MUST be fully contained in the scene."
+        },
+        "CropImageUI" : {
+            "Title" : "Crop Image Instructions and Submit",
+            "Instructions1" : "Chain regular walls around the perimeter of the portion of map you wish to keep.  The perimeter does not need to be rectangular.  A polygon is allowed.",
+            "Instructions2" : "The walls submitted are not contiguous.  The walls must be chained together and end where the first wall began."
         },
         "MenuButtons" : {
             "ImageTools" : {

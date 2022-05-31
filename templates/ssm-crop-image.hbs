@@ -1,0 +1,16 @@
+<section class="ssm-app">
+    <form>
+        {{#if isValidated}}
+            <p>{{localize 'SSM.CropImageUI.Instructions1'}}</p>
+        {{else}}
+            <p>{{localize 'SSM.CropImageUI.Instructions2'}}</p>
+        {{/if}}
+        <div class="ssm-grid-centered">
+            <div class="ssm-dividing-continue">
+                <button type="submit" id="ssm-ciui-submit" name="submit" class="button-continue">
+                    {{localize 'SSM.Submit'}}
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
