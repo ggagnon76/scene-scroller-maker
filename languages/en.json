@@ -28,7 +28,8 @@
             "ConfirmUsePackTitle": "Use this pack?",
             "ConfirmUsePack1": "Compendium pack ",
             "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?",
-            "CompCreate" : "Create Compendium With Sub-Scenes"
+            "CompCreate" : "Create Compendium With Sub-Scenes",
+            "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags."
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",
