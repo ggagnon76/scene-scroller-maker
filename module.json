@@ -15,7 +15,6 @@
     }
   ],
   "dependencies": [
-    {"name": "scene-scroller"},
     {"name": "lib-df-buttons"},
     {"name": "lib-wrapper"}
   ],
