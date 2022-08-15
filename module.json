@@ -1,32 +1,49 @@
 {
-  "name": "scene-scroller-maker",
+  "id": "scene-scroller-maker",
   "title": "Scene Scroller Maker",
   "description": "Add-on for the Scene Scroller module.  Workflow to create and modify Scene Scroller compatible compendium scenes.",
   "version": "This is auto replaced",
-  "library": "false",
-  "manifestPlusVersion": "1.0.0",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "license" : "https://github.com/ggagnon76/scene-scroller-maker/blob/master/LICENSE",
+  "readme" : "https://github.com/ggagnon76/scene-scroller-maker/blob/master/README.md",
+  "bugs" : "https://github.com/ggagnon76/scene-scroller-maker/issues",
+  "changelog" : "https://github.com/ggagnon76/scene-scroller-maker/releases",
+  "flags" : {},
+  "library": false,
+  "compatibility" : {
+    "minimum" : 9,
+    "verified" : 9
+  },
   "authors": [
     {
-      "name": "Gilles Gagnon, aka Kerrec Snowmane",
-      "url": "https://github.com/ggagnon76/scene-scroller",
+      "name": "Kerrec Snowmane",
+      "url": "https://github.com/ggagnon76",
       "discord": "Kerrec Snowmane#5264"
     }
   ],
-  "dependencies": [
-    {"name": "lib-df-buttons"},
-    {"name": "lib-wrapper"}
-  ],
-  "conflicts": [
-    
-  ],
+  "relationships": {
+    "systems" : [],
+    "requires" : [{
+      "id" : "lib-wrapper",
+      "type" : "module",
+      "manifest": "https://github.com/ruipin/fvtt-lib-wrapper/releases/download/v1.0.8.0/module.json",
+      "compatibility" : {
+        "verified" : "1.0.8.0"
+      }
+    },
+    {
+      "id" : "lib-df-buttons",
+      "type" : "module",
+      "manifest" : "https://dragonflagon.cafe/mods/man/lib-df-buttons",
+      "compatibility" : {
+        "verified" : "1.3.2"
+      }
+    }]
+  },
+  "conflicts": [],
   "esmodules": [
     "ssm-launch.js"
   ],
-  "scripts": [
-    
-  ],
+  "scripts": [],
   "styles": [
     "/styles/scenescrollermaker.css"
   ],
@@ -40,7 +57,8 @@
   "url": "This is auto replaced",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
-  "media": [
-    
-  ]
+  "sockets" : false,
+  "protected" : false,
+  "coreTranslation" : false,
+  "media": []
 }
