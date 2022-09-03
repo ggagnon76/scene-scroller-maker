@@ -49,8 +49,7 @@
         },
         "CropImageUI" : {
             "Title" : "Crop Image Instructions and Submit",
-            "Instructions1" : "Chain regular walls around the perimeter of the portion of map you wish to keep.  The perimeter does not need to be rectangular.  A polygon is allowed.",
-            "Instructions2" : "The walls submitted are not contiguous.  The walls must be chained together and end where the first wall began."
+            "Instructions1" : "Use the drawing tool to cover the area to keep with shapes.  Can use rectangles, circles or oddly shaped polygons.  The only requirement is the drawing shapes overlap at least one other shape."
         },
         "MenuButtons" : {
             "ImageTools" : {
