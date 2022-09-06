@@ -19,3 +19,10 @@ Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
 Hooks.once('ready', () => {
     game.modules.get(ModuleName).api = Texture2Polygon;
 })
+
+/**
+ * lib-df-buttons needs a fix before this can work.
+Hooks.on('activateTilesLayer', (...args) => {
+    Hooks.call('reloadModuleButtons');
+})
+*/

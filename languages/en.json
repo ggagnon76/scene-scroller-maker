@@ -54,7 +54,7 @@
         "MenuButtons" : {
             "ImageTools" : {
                 "name" : "Image Tools",
-                "title" : "Convert to .webP, resize and/or crop."
+                "title" : "Modify files located in a folder.  Doesn't modify existing scenes."
             },
             "TileNudge" : {
                 "name" : "Tile-Nudge",
@@ -62,7 +62,7 @@
             },
             "SceneTools" : {
                 "name" : "Scene-Editing-Tools",
-                "title" : "Edit entire scenes"
+                "title" : "Modify existing scenes"
             },
             "Tools" : {
                 "ConvertBackground" : {
@@ -122,6 +122,9 @@
         },
         "Crop" : {
             "notOverlapping" : "The drawn shapes produced two or more groups of shapes.  All shapes must be drawn to overlap at least one preceding shape to produce one continous area of coverage."
+        },
+        "ConvertBackground" : {
+            "noBackground" : "There is no background assigned to this scene."
         }
     }
 }
