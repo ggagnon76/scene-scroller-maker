@@ -23,14 +23,6 @@
   "relationships": {
     "systems" : [],
     "requires" : [{
-      "id" : "lib-wrapper",
-      "type" : "module",
-      "manifest": "https://github.com/ruipin/fvtt-lib-wrapper/releases/download/v1.0.8.0/module.json",
-      "compatibility" : {
-        "verified" : "1.0.8.0"
-      }
-    },
-    {
       "id" : "lib-df-buttons",
       "type" : "module",
       "manifest" : "https://dragonflagon.cafe/mods/man/lib-df-buttons",

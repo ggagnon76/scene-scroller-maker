@@ -125,6 +125,9 @@
         },
         "ConvertBackground" : {
             "noBackground" : "There is no background assigned to this scene."
+        },
+        "ScaleScene" : {
+            "noScene" : "There is no active scene to resize."
         }
     }
 }
