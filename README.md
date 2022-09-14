@@ -1,3 +1,5 @@
+[![GitHub downloads (latest)](https://img.shields.io/badge/dynamic/json?label=Downloads@latest&query=assets[?(@.name.includes('zip'))].download_count&url=https://api.github.com/repos/ggagnon76/scene-scroller-maker/releases/latest&color=green)](https://github.com/ggagnon76/scene-scroller-maker/releases/latest)
+
 # scene-scroller-maker
 Tools to modify or divide scenes and images.
 
