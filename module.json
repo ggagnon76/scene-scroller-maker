@@ -7,7 +7,11 @@
   "readme" : "https://github.com/ggagnon76/scene-scroller-maker/blob/master/README.md",
   "bugs" : "https://github.com/ggagnon76/scene-scroller-maker/issues",
   "changelog" : "https://github.com/ggagnon76/scene-scroller-maker/releases",
-  "flags" : {},
+  "flags" : {
+    "fvttdevleague" : {
+      "package-jam" : 2022
+    }
+  },
   "library": false,
   "compatibility" : {
     "minimum" : 9,
@@ -52,5 +56,6 @@
   "sockets" : false,
   "protected" : false,
   "coreTranslation" : false,
-  "media": []
+  "media": [],
+  
 }
