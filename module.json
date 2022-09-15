@@ -1,7 +1,7 @@
 {
   "id": "scene-scroller-maker",
   "title": "Scene Scroller Maker",
-  "description": "Add-on for the Scene Scroller module.  Workflow to create and modify Scene Scroller compatible compendium scenes.",
+  "description": "Tools for the modification of images and scenes.",
   "version": "This is auto replaced",
   "license" : "https://github.com/ggagnon76/scene-scroller-maker/blob/master/LICENSE",
   "readme" : "https://github.com/ggagnon76/scene-scroller-maker/blob/master/README.md",
@@ -14,8 +14,8 @@
   },
   "library": false,
   "compatibility" : {
-    "minimum" : 9,
-    "verified" : 9
+    "minimum" : 10,
+    "verified" : 10.285
   },
   "authors": [
     {
@@ -26,16 +26,15 @@
   ],
   "relationships": {
     "systems" : [],
-    "requires" : [{
+    "requires" : [
+      {
       "id" : "lib-df-buttons",
       "type" : "module",
-      "manifest" : "https://dragonflagon.cafe/mods/man/lib-df-buttons",
       "compatibility" : {
         "verified" : "1.3.2"
       }
     }]
   },
-  "conflicts": [],
   "esmodules": [
     "ssm-launch.js"
   ],
@@ -53,8 +52,5 @@
   "url": "This is auto replaced",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
-  "sockets" : false,
-  "protected" : false,
-  "coreTranslation" : false,
   "media": []
 }
