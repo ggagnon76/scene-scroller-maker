@@ -131,6 +131,19 @@
         },
         "ScaleScene" : {
             "noScene" : "There is no active scene to resize."
+        },
+        "PickSceneUI" : {
+            "Title1" : "Pick the sub-scene onto which you will attach a new scene.",
+            "Title2" : "Pick the sub-scene to attach to this scene.",
+            "Error1" : "No scene was selected."
+        },
+        "InitiateSceneUI" : {
+            "Title" : "SSM: Select Seed Scene",
+            "SelectDefault" : "Nothing Selected.",
+            "Instructions" : {
+                "SelectCompendium": "Select Compendium:",
+                "SelectScene": "Select Scene:"
+            }
         }
     }
 }
