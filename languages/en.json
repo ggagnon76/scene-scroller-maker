@@ -144,6 +144,13 @@
                 "SelectCompendium": "Select Compendium:",
                 "SelectScene": "Select Scene:"
             }
+        },
+        "LinkScenesUI" : {
+            "Title" : "SSM: Position scene confirmation",
+            "Content" : "Drag to place the new sub-scene, then click Continue.",
+            "Label": "Continue",
+            "ConfirmContent" : "Do you want the link to work both ways?  IE: the token(s) will be able to move back and forth?",
+            "ConfirmTitle" : "2-way link"
         }
     }
 }
