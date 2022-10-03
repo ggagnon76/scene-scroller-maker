@@ -1,0 +1,32 @@
+<section class="ssm-picker-app">
+    <form class="ssm-seed-scene-select">
+        <ol >
+            <li>
+                <label for="z_comp_sel">{{compSelectText}}</label>
+                <select name="z_comp_sel" id="z_comp_sel">
+                    <option value="no_selection">{{defaultSelect}}</option>
+                    {{#each compendiumList}}
+                        <option value="{{this}}"
+                        {{#if (comp_equal ../compendium)}}
+                            selected
+                        {{/if}}
+                        >{{this}}</option>
+                    {{/each}}
+                </select>
+            </li>
+            <li>
+                <label for="z_scene_sel">{{sceneSelectText}}</label>
+                <select name="z_scene_sel" id="z_scene_sel"
+                    {{#unless compendium}}
+                        disabled
+                    {{/unless}}
+                >
+                    <option value="no_selection">{{defaultSelect}}</option>
+                    {{#each sceneList}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </li>
+        </ol>
+    </form>
+</section>

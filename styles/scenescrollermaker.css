@@ -3,6 +3,18 @@
     max-height: 50vh;
 }
 
+.ssm-picker-app {
+    margin: 0;
+    color: var(--color-text-light-highlight);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    box-shadow: 0 0 20px var(--color-shadow-dark);
+    padding: 0;
+    max-height: 90vh;
+}
+
 #ssm-scene-divider .window-content,
 #ssm-convert-image .window-content,
 #ssm-resize-image .window-content,
@@ -127,4 +139,40 @@ form .button-continue {
     border: 1px solid var(--color-text-light-highlight);
     border-radius: 2px;
     box-shadow: 0 0 10px #642700;
+}
+
+#scene-scroller-maker-pick-form .window-content {
+    background: url(/ui/denim075.png) repeat;
+    padding: 0px;
+}
+
+.ssm-seed-scene-select {
+    display: grid;
+    grid-template-columns: auto;
+    align-content: center;
+    
+}
+
+.ssm-seed-scene-select ol {
+    padding: 5px;
+    margin: 5px;
+    list-style: none;
+}
+
+.ssm-seed-scene-select option {
+    color: var(--color-text-dark-primary);
+}
+
+.ssm-seed-scene-select li {
+    display: grid;
+    grid-template-columns: 150px auto;
+    padding: 5px;
+}
+
+#z_comp_sel {
+    color: var(--color-text-light-highlight);
+}
+
+#z_scene_sel {
+    color: var(--color-text-light-highlight);
 }
