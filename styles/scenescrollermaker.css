@@ -3,7 +3,8 @@
     max-height: 50vh;
 }
 
-.ssm-picker-app {
+.ssm-picker-app,
+.ssm-config-radio-select {
     margin: 0;
     color: var(--color-text-light-highlight);
     display: flex;
@@ -18,7 +19,8 @@
 #ssm-scene-divider .window-content,
 #ssm-convert-image .window-content,
 #ssm-resize-image .window-content,
-#ssm-crop-image .window-content {
+#ssm-crop-image .window-content,
+#ssm-settings-select-compendium .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
@@ -102,7 +104,8 @@ form .ssm-div-card .ssm-grid-centered {
 }
 
 form .ssm-input-grid input,
-form .ssm-div-card input {
+form .ssm-div-card input,
+.ssm-config-radio-select label {
     color: var(--color-text-light-highlight);
 }
 
@@ -150,7 +153,6 @@ form .button-continue {
     display: grid;
     grid-template-columns: auto;
     align-content: center;
-    
 }
 
 .ssm-seed-scene-select ol {
@@ -159,20 +161,43 @@ form .button-continue {
     list-style: none;
 }
 
-.ssm-seed-scene-select option {
+.ssm-seed-scene-select option,
+.ssm-config-radio-select,
+#z_comp_sel option {
     color: var(--color-text-dark-primary);
 }
 
-.ssm-seed-scene-select li {
+.ssm-seed-scene-select li,
+#ssm-comp-choice-current {
     display: grid;
     grid-template-columns: 150px auto;
     padding: 5px;
 }
 
-#z_comp_sel {
+.ssm-text-w-label {
+    display: grid;
+    grid-template-columns: 50px 160px auto;
+    padding: 10px;
+}
+
+.ssm-radio-w-label {
+    display: grid;
+    grid-template-columns: 50px auto;
+    padding: 10px;
+}
+
+.ssm-text-w-label label,
+#ssm-comp-choice-current label {
+    align-self: center;
+}
+
+#z_comp_sel,
+#z_scene_sel,
+#ssm-comp-choice-current input,
+.ssm-text-w-label input {
     color: var(--color-text-light-highlight);
 }
 
-#z_scene_sel {
-    color: var(--color-text-light-highlight);
+.ssm-config-radio-select footer {
+    padding: 10px
 }
