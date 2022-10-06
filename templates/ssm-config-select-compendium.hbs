@@ -1,32 +1,32 @@
 <section class="ssm-app">
     <div class="ssm-input-grid" id="ssm-comp-choice-current">
-        <label for="ssm-comp-choice-current">{{currentLabel}}</label>
+        <label for="ssm-comp-choice-current">{{localize "SSM.DefaultSceneCompendiumMenu.CurrentLabel"}}</label>
         <input type="text" name="ssm-comp-choice-current" value="{{current}}"/>        
     </div>
     <form class="ssm-config-radio-select">
         {{#if noRadio}}
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="create-comp" value="1"/>
-                <label for="create-comp">{{createLabel}}</label>
+                <label for="create-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.CreateLabel"}}</label>
             </div>
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="choose-comp" value="2"/>
-                <label for="choose-comp">{{selectLabel}}</label>
+                <label for="choose-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.SelectLabel"}}</label>
             </div>
         {{/if}}
 
         {{#if createRadio}}
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="choose-comp" value="2"/>
-                <label for="choose-comp">{{selectLabel}}</label>
+                <label for="choose-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.SelectLabel"}}</label>
             </div>
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="create-comp" value="1" checked="checked"/>
-                <label for="create-comp">{{createLabel}}</label>
+                <label for="create-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.CreateLabel"}}</label>
             </div>
             <div class="ssm-text-w-label">
                 <div></div>
-                <label for="ssm-create-name">{{createInputLabel}}</label>
+                <label for="ssm-create-name">{{localize "SSM.DefaultSceneCompendiumMenu.UI.CreateInputLabel"}}</label>
                 <input type="text" name="ssm-create-name" value=""/>
             </div>
         {{/if}}
@@ -34,11 +34,11 @@
         {{#if chooseRadio}}
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="create-comp" value="1"/>
-                <label for="create-comp">{{createLabel}}</label>
+                <label for="create-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.CreateLabel"}}</label>
             </div>
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="choose-comp" value="2" checked="checked"/>
-                <label for="choose-comp">{{selectLabel}}</label>
+                <label for="choose-comp">{{localize "SSM.DefaultSceneCompendiumMenu.UI.SelectLabel"}}</label>
             </div>
             <div class="ssm-radio-w-label">
                 <div></div>
@@ -58,7 +58,7 @@
         {{#if submitRadio}}
             <footer class="ssm-grid-centered">
                 <button type="submit" name="submit" id="ssm-sd-submit">
-                    <i class="far fa-save"></i> {{submitLabel}}
+                    <i class="far fa-save"></i> {{localize "SSM.SaveDefault"}}
                 </button>
             </footer>
         {{/if}}

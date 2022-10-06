@@ -20,7 +20,8 @@
 #ssm-convert-image .window-content,
 #ssm-resize-image .window-content,
 #ssm-crop-image .window-content,
-#ssm-settings-select-compendium .window-content {
+#ssm-settings-select-compendium .window-content,
+#ssm-settings-select-img-path .window-content {
     background: url(/ui/denim075.png) repeat;
 }
 
@@ -186,6 +187,12 @@ form .button-continue {
     padding: 10px;
 }
 
+.ssm-config-path-select {
+    display: grid;
+    grid-template-columns: auto 50px;
+    padding: 10px;
+}
+
 .ssm-text-w-label label,
 #ssm-comp-choice-current label {
     align-self: center;
@@ -194,10 +201,28 @@ form .button-continue {
 #z_comp_sel,
 #z_scene_sel,
 #ssm-comp-choice-current input,
+.ssm-config-choice-select input,
 .ssm-text-w-label input {
     color: var(--color-text-light-highlight);
 }
 
-.ssm-config-radio-select footer {
+.ssm-config-radio-select footer,
+.ssm-config-path-select footer {
     padding: 10px
+}
+
+form .ssm-filepicker-button .file-picker {
+    background-color: var(--color-text-light-highlight);
+    color: var(--color-text-dark-primary);
+    border: none;
+}
+
+form #ssm-config-path-submit {
+    background: var(--color-text-light-highlight);
+    border: none;
+    width: 250px;
+}
+
+.ssm-config-path-select .ssm-grid-centered {
+    grid-column: 1 / span 2;
 }

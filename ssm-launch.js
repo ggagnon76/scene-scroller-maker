@@ -1,4 +1,4 @@
-import { SSM_SelectDefaultCompendium } from "./lib/forms.js";
+import { SSM_SelectDefaultCompendium, SSM_SelectDefaultImgPath } from "./lib/forms.js";
 import { populateMenuButtons, getCompendiumPack } from "./lib/functions.js";
 import { Texture2Polygon } from "./lib/poly_from_texture.js";
 
@@ -14,15 +14,21 @@ Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
 Hooks.once('ready', () => {
     game.modules.get(ModuleName).api = Texture2Polygon;
 
-    /**
-    game.settings.registerMenu(ModuleName, "defaultImagePathMenu", {
-        name: game.i18n.localize("SSM.DefaultImagePath.Name"),
-        label: game.i18n.localize("SSM.DefaultImagePath.Label"),
-        hint: game.i18n.localize("SSM.DefaultImagePath.Hint"),
+    game.settings.register(ModuleName, "defaultImagePath", {
+        scope: "world",
+        config: false,
+        requiresReload: false,
         type: String,
+        default: ""
+    })
+
+    game.settings.registerMenu(ModuleName, "defaultImagePathMenu", {
+        name: game.i18n.localize("SSM.DefaultImgPathMenu.Name"),
+        label: game.i18n.localize("SSM.DefaultImgPathMenu.Label"),
+        hint: game.i18n.localize("SSM.DefaultImgPathMenu.Hint"),
+        type: SSM_SelectDefaultImgPath,
         restricted: true
     })
-    */
 
     game.settings.register(ModuleName, "defaultSceneCompendium", {
         scope: "world",
