@@ -1,108 +1,209 @@
 <section class="ssm-app">
     <form>
-        {{#unless hasPath}}
-            <p>{{localize 'SSM.SceneDividerUI.Explanation1'}}</p>
-            <p>{{localize 'SSM.SceneDividerUI.Explanation2'}}</p>
-            <p>{{localize 'SSM.SceneDividerUI.Explanation3'}}</p>
-            <hr />
-        {{/unless}}
-        {{#if isDividing}}
+        {{! ***************************************************************************************************************************** }}
+        {{! Instructions }}
+        {{! ***************************************************************************************************************************** }}
+        {{#if step1}}  {{! Displaying and generating new sub-scenes}}
+            {{#unless hasDivisions}}  {{!  Only display these instructions once}}
+                <p>{{localize 'SSM.SceneDividerUI.Explanation1'}}</p>
+                <p>{{localize 'SSM.SceneDividerUI.Explanation2'}}</p>
+                <p>{{localize 'SSM.SceneDividerUI.Explanation3'}}</p>
+            {{else}}  {{! Display these instructions the rest of the time}}
+                <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
+            {{/unless}}
+        {{/if}}
+
+        {{#if step2}}  {{! User has to reveal the area that defines the bound of the new sub-scene.  Provide instructions.}}
             <p>{{localize 'SSM.SceneDividerUI.Explanation7'}}</p>
             <p>{{localize 'SSM.SceneDividerUI.Explanation8'}}</p>
-            {{#unless isExplored}}
+        {{/if}}
+
+        {{#if step3}}  {{! User has to select save location for sub-scene webp images}}
+            <p>{{localize 'SSM.SceneDividerUI.ImgSaveLocation1'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.ImgSaveLocation2'}}</p>
+        {{/if}}
+
+        {{#if step4}}  {{! User has to select where to create new scenes}}
+            <p>{{localize 'SSM.SceneDividerUI.CompSaveLocation1'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.CompSaveLocation2'}}</p>
+        {{/if}}
+        
+        <hr />
+
+
+        {{! ***************************************************************************************************************************** }}
+        {{! Working area }}
+        {{! ***************************************************************************************************************************** }}
+        {{#if step1}}  {{! Displaying and generating sub-scenes}}
+            <ol>
+                {{#each divisions}}
+                    <li class="ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
+                        <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
+                        <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}"/>
+                        <button type="submit" class="division-trash" id="div-trash" data-id="{{this.drawingID}}"><i class="fas fa-trash"></i></button>
+                    </li>
+                {{/each}}
+            </ol>
+                {{#if hasInWorkDivision}}  {{! Only display the explanation below if the UI is waiting for a sub-scene name to be entered.}}
+                    <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
+                {{/if}}
+            <ol>
+                {{#if hasInWorkDivision}}  {{!  Only display the sub-scene name input box if this is the first one, or the user has clicked on 'make a new sub-scene'}}
+                    <li class="ssm-input-grid">
+                        <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
+                        <input type="text" id="div-input" name="subSceneName" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
+                        <div class="ssm-grid-centered">
+                            <button type="submit" id="div-continue" class="button-continue">
+                                {{localize 'SSM.Continue'}}
+                            </button>
+                        </div>
+                    </li>
+                {{else}}  {{! Otherwise display the button to create new sub-scenes}}
+                    <div class="ssm-new-div">
+                        <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                        <div class="filepicker-fields">
+                            <button type="submit" id="ssm-stp1-stp2" class="button-new-div">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                {{/if}}
+            </ol>
+        {{/if}}
+
+        {{#if step2}} {{! User has to reveal the area that defines the bounds of the new sub-scene.}}
+            {{#unless isExplored}}  {{! Only render the continue button once the user has dragged to reveal a part of the fog of war.}}
                 <p>{{localize 'SSM.SceneDividerUI.Explanation9'}}</p>
-            {{/unless}}
-            {{#if isExplored}}
+            {{else}}
                 <div class="ssm-dividing-continue">
-                    <button type="button" id="dvdg-continue" class="button-continue">
+                    <button type="submit" id="ssm-stp2-stp1" class="button-continue">
                         {{localize 'SSM.Continue'}}
                     </button>
                 </div>
-            {{/if}}
-        {{else}}
-            <div class="ssm-input-grid">
-                <label>{{localize 'SSM.SceneDividerUI.BackgroundSaveLocation'}}</label>
-                <div class="filepicker-fields">
-                    {{filePicker target="imagePath" type="folder"}}
-                    <input type="text" name="imagePath" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
+            {{/unless}}
+        {{/if}}
+
+        {{#if step3}}  {{! User has to select save location for sub-scene background images}}
+            <p>{{localize 'SSM.SceneDividerUI.ImgSaveWhere'}}</p>
+            <div class="ssm-config-radio-select">
+                <div class="ssm-radio-w-label">
+                    <input type="radio" name="ssm-default-imgPath" id="default-imgPath" value="1" {{#unless hasDefaultImgPath}}disabled {{/unless}}{{#if isDefaultAndNotSet}}checked{{/if}}/>
+                    <label for="default-imgPath">
+                        {{#unless hasDefaultImgPath}}
+                            {{localize "SSM.SceneDividerUI.ImgNoDefault"}}
+                        {{else}}
+                            {{localize "SSM.SceneDividerUI.ImgSaveDefault"}}
+                        {{/unless}}
+                    </label>
+                </div>
+                <div class="ssm-config-radio-select">
+                    <div class="ssm-radio-w-label">
+                        <input type="radio" name="ssm-default-imgPath" id="manual-imgPath" value="2" {{#unless isDefaultAndNotSet}}checked{{/unless}}/>
+                        <label for="manual-imgPath">{{localize "SSM.SceneDividerUI.ImgSaveWhere"}}</label>
+                    </div>
                 </div>
             </div>
-            {{#if hasPath}}
-                {{#unless hasCompName}}
-                    <hr />
-                    <p>{{localize 'SSM.SceneDividerUI.Explanation4'}}</p>
-                {{/unless}}
-                <div class="ssm-input-grid">
-                    <label>{{localize 'SSM.SceneDividerUI.CompendiumName'}}</label>
-                    <input type="text" name="compendiumName" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
-                    {{#unless hasCompName}}
-                        <div class="ssm-grid-centered">
-                            <button type="button" id="comp-continue" class="button-continue">
-                                {{localize 'SSM.Continue'}}
-                            </button>
-                        </div>  
-                    {{/unless}}
+            {{#unless isDefaultAndSet}}
+                <div class="ssm-config-path-select">
+                    <div class="ssm-input-grid">
+                        <label for="ssm-path-choice-current">{{localize 'SSM.DefaultImgPathMenu.CurrentLabel'}}</label>
+                        <input type="text" name="ssm-path-choice-current" value="{{currentPath}}"/>        
+                    </div>
                 </div>
-                {{#if hasCompName}}
-                    <hr />
-                    {{#if hasDivisions}}
-                        <ol>
-                            {{#each divisions}}
-                                <li class="ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
-                                    <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
-                                    <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}" disabled/>
-                                    <button type="button" class="division-trash"><i class="fas fa-trash"></i></button>
-                                </li>
-                            {{/each}}
-                        </ol>
-                        {{#unless hasInWorkDivision}}
-                            <div class="ssm-new-div">
-                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
-                                <div class="filepicker-fields">
-                                    <button type="button" id="create-div" class="button-new-div">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
+            {{else}}
+                <div class="ssm-config-path-select">
+                    <div class="ssm-input-grid">
+                        <label for="ssm-path-choice-current">{{localize 'SSM.SceneDividerUI.ImgSavePicker'}}</label>
+                        <input type="text" name="ssm-path-choice-current" value="{{currentPath}}"/>        
+                    </div>
+                    <div class="ssm-filepicker-button">
+                        {{filePicker target="ssm-path-choice-current" type="folder"}}
+                    </div>
+                </div>
+            {{/unless}}
+        {{/if}}
+
+        {{#if step4}}  {{! User has to select save location for the new sub-scene(s)}}
+            <p>{{localize 'SSM.SceneDividerUI.CompSaveWhere'}}</p>
+            <div class="ssm-config-radio-select">
+                <div class="ssm-radio-w-label">
+                    <input type="radio" name="ssm-scene-loc" id="default-scene-comp" value="1"/>
+                    <label for="default-scene-comp">
+                        {{#unless hasDefaultCompPath}}
+                            {{localize "SSM.SceneDividerUI.CompNoDefault"}}
+                        {{else}}
+                            {{localize "SSM.SceneDividerUI.CompSaveDefault"}}
                         {{/unless}}
-                        <hr />
-                        {{#unless hasInWorkDivision}}
-                            <div class="ssm-grid-centered">
-                                <button type="submit" id="ssm-sd-submit">
-                                    {{localize 'SSM.SceneDividerUI.CompCreate'}}
-                                </button>
-                            </div>
-                        {{/unless}}
-                    {{else}}
-                        {{#unless hasInWorkDivision}}
-                            <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
-                            <div class="ssm-new-div">
-                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
-                                <div class="filepicker-fields">
-                                    <button type="button" id="create-div" class="button-new-div">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        {{/unless}}
-                    {{/if}}
-                    {{#if hasInWorkDivision}}
-                        <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
-                        <ol>
-                            <li class="ssm-input-grid">
-                                <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
-                                <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
-                                <div class="ssm-grid-centered">
-                                    <button type="button" id="div-continue" class="button-continue">
-                                        {{localize 'SSM.Continue'}}
-                                    </button>
-                                </div>
-                            </li>
-                        </ol>
-                        <hr />
-                    {{/if}}
-                {{/if}}
-            {{/if}}
+                    </label>
+                </div>
+                <div class="ssm-config-radio-select">
+                    <div class="ssm-radio-w-label">
+                        <input type="radio" name="ssm-scene-loc" id="select-comp" value="2"/>
+                        <label for="select-comp">{{localize "SSM.SceneDividerUI.CompChooseExisting"}}</label>
+                    </div>
+                </div>
+                <div class="ssm-config-radio-select">
+                    <div class="ssm-radio-w-label">
+                        <input type="radio" name="ssm-scene-loc" id="create-comp" value="3"/>
+                        <label for="create-comp">{{localize "SSM.SceneDividerUI.CompMakeNew"}}</label>
+                    </div>
+                </div>
+                <div class="ssm-config-radio-select">
+                    <div class="ssm-radio-w-label">
+                        <input type="radio" name="ssm-scene-loc" id="select-scene-folder" value="4"/>
+                        <label for="select-scene-folder">{{localize "SSM.SceneDividerUI.SceneFolderChoice"}}</label>
+                    </div>
+                </div>
+                <div class="ssm-config-radio-select">
+                    <div class="ssm-radio-w-label">
+                        <input type="radio" name="ssm-scene-loc" id="embed-in-scene" value="5" disabled/>
+                        <label for="embed-in-scene">{{localize "SSM.SceneDividerUI.EmbedInScene"}}</label>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+
+        <hr />
+
+
+        {{! ***************************************************************************************************************************** }}
+        {{! Footer with buttons }}
+        {{! ***************************************************************************************************************************** }}
+        {{#if step1Ready}}  {{! If we're at step 1 AND sub-scenes exist, then display a continue button.}}
+            <div class="ssm-grid-centered">
+                <button type="submit" id="ssm-stp1-stp3">
+                    {{localize 'SSM.Next'}}
+                </button>
+            </div>
+        {{/if}}
+
+        {{#if step3}}
+            <div class="ssm-grid-two-buttons">
+                <div class="button-continue">
+                    <button type="submit" id="ssm-stp3-stp1">
+                        {{localize 'SSM.Previous'}}
+                    </button>
+                </div>
+                <div class="button-continue">
+                    <button type="submit" id="ssm-stp3-stp4">
+                        {{localize 'SSM.Next'}}
+                    </button>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if step4}}
+            <div class="ssm-grid-two-buttons">
+                <div class="button-continue">
+                    <button type="submit" id="ssm-stp4-stp3">
+                        {{localize 'SSM.Previous'}}
+                    </button>
+                </div>
+                <div class="button-continue">
+                    <button type="submit" id="ssm-stp4-submit">
+                        {{localize 'SSM.Submit'}}
+                    </button>
+                </div>
             </div>
         {{/if}}
     </form>

@@ -86,15 +86,21 @@ form .ssm-new-div button,
 form .ssm-div-card button,
 form .ssm-dividing-continue button,
 form #ssm-sd-submit,
+form #ssm-stp1-stp3,
 form #ssm-ciui-submit,
 form .ssm-resize-sizes input,
 form #ssm-riui-submit,
-form #ssm-ciui-submit {
+form #ssm-ciui-submit,
+form #ssm-stp3-stp1,
+form #ssm-stp3-stp4,
+form #ssm-stp4-stp3,
+form #ssm-stp4-submit {
     background: var(--color-text-light-highlight);
     border: none;
 }
 
-form #ssm-sd-submit {
+form #ssm-sd-submit,
+form #ssm-stp1-stp3 {
     width: 250px;
 }
 
@@ -110,7 +116,7 @@ form .ssm-div-card input,
     color: var(--color-text-light-highlight);
 }
 
-form p {
+.ssm-app form p {
     font-size: 125%;
     font-family: "Times New Roman";
 }
@@ -225,4 +231,10 @@ form #ssm-config-path-submit {
 
 .ssm-config-path-select .ssm-grid-centered {
     grid-column: 1 / span 2;
+}
+
+.ssm-grid-two-buttons {
+    display: grid;
+    grid-template-columns: 155px 155px;
+    justify-content: center;
 }

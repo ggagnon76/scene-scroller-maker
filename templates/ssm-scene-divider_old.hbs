@@ -1,0 +1,109 @@
+<section class="ssm-app">
+    <form>
+        {{#unless hasPath}}
+            <p>{{localize 'SSM.SceneDividerUI.Explanation1'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation2'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation3'}}</p>
+            <hr />
+        {{/unless}}
+        {{#if isDividing}}
+            <p>{{localize 'SSM.SceneDividerUI.Explanation7'}}</p>
+            <p>{{localize 'SSM.SceneDividerUI.Explanation8'}}</p>
+            {{#unless isExplored}}
+                <p>{{localize 'SSM.SceneDividerUI.Explanation9'}}</p>
+            {{/unless}}
+            {{#if isExplored}}
+                <div class="ssm-dividing-continue">
+                    <button type="button" id="dvdg-continue" class="button-continue">
+                        {{localize 'SSM.Continue'}}
+                    </button>
+                </div>
+            {{/if}}
+        {{else}}
+            <div class="ssm-input-grid">
+                <label>{{localize 'SSM.SceneDividerUI.BackgroundSaveLocation'}}</label>
+                <div class="filepicker-fields">
+                    {{filePicker target="imagePath" type="folder"}}
+                    <input type="text" name="imagePath" placeholder="{{localize 'SSM.SceneDividerUI.DirPath'}}" value="{{path}}"/>
+                </div>
+            </div>
+            {{#if hasPath}}
+                {{#unless hasCompName}}
+                    <hr />
+                    <p>{{localize 'SSM.SceneDividerUI.Explanation4'}}</p>
+                {{/unless}}
+                <div class="ssm-input-grid">
+                    <label>{{localize 'SSM.SceneDividerUI.CompendiumName'}}</label>
+                    <input type="text" name="compendiumName" id="comp-input" placeholder="{{localize 'SSM.SceneDividerUI.CompName'}}" value="{{compName}}"/>
+                    {{#unless hasCompName}}
+                        <div class="ssm-grid-centered">
+                            <button type="button" id="comp-continue" class="button-continue">
+                                {{localize 'SSM.Continue'}}
+                            </button>
+                        </div>  
+                    {{/unless}}
+                </div>
+                {{#if hasCompName}}
+                    <hr />
+                    {{#if hasDivisions}}
+                        <ol>
+                            {{#each divisions}}
+                                <li class="ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
+                                    <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
+                                    <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}" disabled/>
+                                    <button type="button" class="division-trash"><i class="fas fa-trash"></i></button>
+                                </li>
+                            {{/each}}
+                        </ol>
+                        {{#unless hasInWorkDivision}}
+                            <div class="ssm-new-div">
+                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                                <div class="filepicker-fields">
+                                    <button type="button" id="create-div" class="button-new-div">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {{/unless}}
+                        <hr />
+                        {{#unless hasInWorkDivision}}
+                            <div class="ssm-grid-centered">
+                                <button type="submit" id="ssm-sd-submit">
+                                    {{localize 'SSM.SceneDividerUI.CompCreate'}}
+                                </button>
+                            </div>
+                        {{/unless}}
+                    {{else}}
+                        {{#unless hasInWorkDivision}}
+                            <p>{{localize 'SSM.SceneDividerUI.Explanation5'}}</p>
+                            <div class="ssm-new-div">
+                                <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
+                                <div class="filepicker-fields">
+                                    <button type="button" id="create-div" class="button-new-div">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {{/unless}}
+                    {{/if}}
+                    {{#if hasInWorkDivision}}
+                        <p>{{localize 'SSM.SceneDividerUI.Explanation6'}}</p>
+                        <ol>
+                            <li class="ssm-input-grid">
+                                <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
+                                <input type="text" id="div-input" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
+                                <div class="ssm-grid-centered">
+                                    <button type="button" id="div-continue" class="button-continue">
+                                        {{localize 'SSM.Continue'}}
+                                    </button>
+                                </div>
+                            </li>
+                        </ol>
+                        <hr />
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+            </div>
+        {{/if}}
+    </form>
+</section>
