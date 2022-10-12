@@ -49,7 +49,7 @@
                 {{/if}}
             <ol>
                 {{#if hasInWorkDivision}}  {{!  Only display the sub-scene name input box if this is the first one, or the user has clicked on 'make a new sub-scene'}}
-                    <li class="ssm-input-grid">
+                    <li class="ssm-grid-items-centered ssm-input-grid">
                         <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
                         <input type="text" id="div-input" name="subSceneName" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
                         <div class="ssm-grid-centered">
@@ -105,14 +105,14 @@
             </div>
             {{#unless isDefaultAndSet}}
                 <div class="ssm-config-path-select">
-                    <div class="ssm-input-grid">
+                    <div class="ssm-grid-items-centered ssm-input-grid">
                         <label for="ssm-path-choice-current">{{localize 'SSM.DefaultImgPathMenu.CurrentLabel'}}</label>
                         <input type="text" name="ssm-path-choice-current" value="{{currentPath}}"/>        
                     </div>
                 </div>
             {{else}}
                 <div class="ssm-config-path-select">
-                    <div class="ssm-input-grid">
+                    <div class="ssm-grid-items-centered ssm-input-grid">
                         <label for="ssm-path-choice-current">{{localize 'SSM.SceneDividerUI.ImgSavePicker'}}</label>
                         <input type="text" name="ssm-path-choice-current" value="{{currentPath}}"/>        
                     </div>
