@@ -37,7 +37,7 @@
         {{#if step1}}  {{! Displaying and generating sub-scenes}}
             <ol>
                 {{#each divisions}}
-                    <li class="ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
+                    <li class="ssm-grid-items-centered ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
                         <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
                         <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}"/>
                         <button type="submit" class="division-trash" id="div-trash" data-id="{{this.drawingID}}"><i class="fas fa-trash"></i></button>
