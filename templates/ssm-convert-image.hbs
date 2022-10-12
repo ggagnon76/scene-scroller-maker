@@ -2,7 +2,7 @@
     <form>
         {{#unless isPath}}
             {{#if isBatch}}
-                <div class="ssm-input-grid">
+                <div class="ssm-input-grid ssm-grid-items-centered">
                     <label>{{localize 'SSM.ConvertImageUI.Label.folder'}}</label>
                     <div class="filepicker-fields">
                         {{filePicker target="imagePath" type="folder"}}
@@ -10,7 +10,7 @@
                     </div>
                 </div>
             {{else}}
-                <div class="ssm-input-grid">
+                <div class="ssm-input-grid ssm-grid-items-centered">
                     <label>{{localize 'SSM.ConvertImageUI.Label.image'}}</label>
                     <div class="filepicker-fields">
                         {{filePicker target="imagePath" type="image"}}
@@ -19,7 +19,7 @@
                 </div>
             {{/if}}
         {{else}}
-            <div class="ssm-input-grid">
+            <div class="ssm-input-grid ssm-grid-items-centered">
                 <label>{{localize 'SSM.ConvertImageUI.Label.image'}}</label>
                 <div class="filepicker-fields">
                     <input type="text" name="imagePath" value="{{isPath}}"/>
