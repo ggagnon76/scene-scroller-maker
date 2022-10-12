@@ -1,10 +1,10 @@
+/* Used in multiple templates*/
 .ssm-app {
     color: var(--color-text-light-highlight);
     max-height: 50vh;
 }
 
-.ssm-picker-app,
-.ssm-config-radio-select {
+.ssm-app .ssm-config-radio-select {
     margin: 0;
     color: var(--color-text-light-highlight);
     display: flex;
@@ -16,59 +16,11 @@
     max-height: 90vh;
 }
 
-#ssm-scene-divider .window-content,
-#ssm-convert-image .window-content,
-#ssm-resize-image .window-content,
-#ssm-crop-image .window-content,
-#ssm-settings-select-compendium .window-content,
-#ssm-settings-select-img-path .window-content {
-    background: url(/ui/denim075.png) repeat;
+.ssm-app .window-content {
+    background: url(/ui/denim075.png) repeat;    
 }
 
-.ssm-input-grid {
-    display: grid;
-    grid-template-columns: 40% auto;
-    align-items: center;
-}
-
-.ssm-new-div {
-    display: grid;
-    grid-template-columns: auto 30px;
-    align-items: center;
-    justify-content: right;
-}
-
-.ssm-resize-sizes {
-    display: grid;
-    grid-template-columns: 100px auto 100px auto;
-    align-items: center;
-}
-
-.ssm-new-div label {
-    margin: 0 10px 0 0;
-}
-
-.ssm-compression-slider {
-    display: grid;
-    grid-template-columns: 40% auto 40px;
-    align-items: center;
-}
-
-.ssm-compression-slider span {
-    justify-self: center;
-}
-
-.ssm-app .ssm-compression-slider .range-value {
-    border: none;
-}
-
-.ssm-div-card {
-    display: grid;
-    grid-template-columns: 75px auto 30px;
-    align-items: center;
-}
-
-.filepicker-fields {
+.ssm-app .filepicker-fields {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -77,32 +29,110 @@
     padding-bottom: 5px;
 }
 
+.ssm-app .ssm-grid-items-centered {
+    display: grid;
+    align-items: center;
+}
+
+.ssm-app form p {
+    font-size: 125%;
+    font-family: "Times New Roman";
+}
+
+.ssm-app ol {
+    padding: 0;
+    list-style-type: none;
+}
+
+.ssm-app ol li {
+    margin: 0 0 5px 10px;
+    padding: 5px;
+    border: 1px solid var(--color-text-light-highlight);
+    border-radius: 2px;
+    box-shadow: 0 0 10px #642700;
+}
+
+.ssm-app .ssm-input-grid {
+    grid-template-columns: 40% auto;
+}
+
+.ssm-app .ssm-compression-slider {
+    grid-template-columns: 40% auto 40px;
+}
+
+.ssm-app .ssm-compression-slider span {
+    justify-self: center;
+}
+
+.ssm-app .ssm-no-border {
+    border: none;
+}
+
+.ssm-app .ssm-light-text {
+    background: var(--color-text-light-highlight);
+}
+
+.ssm-app .ssm-button-250px {
+    width: 250px;
+}
+
+
+
+
+/* Initialize (build scene from flag data) */
+.ssm-app .ssm-picker-app {
+    margin: 0;
+    color: var(--color-text-light-highlight);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    box-shadow: 0 0 20px var(--color-shadow-dark);
+    padding: 0;
+    max-height: 90vh;
+}
+
+
+
+
+/* Scene Divider */
+.ssm-app .ssm-new-div {
+    display: grid;
+    grid-template-columns: auto 30px;
+    align-items: center;
+    justify-content: right;
+}
+
+.ssm-app .ssm-new-div label {
+    margin: 0 10px 0 0;
+}
+
+.ssm-div-card {
+    grid-template-columns: 75px auto 30px;
+}
+
+
+
+/* Resize Image */
+.ssm-resize-sizes {
+    grid-template-columns: 100px auto 100px auto;
+}
+
 .ssm-resize-sizes input[type="number"] {
     width: 50px;
 }
 
-form .ssm-input-grid button,
-form .ssm-new-div button,
-form .ssm-div-card button,
-form .ssm-dividing-continue button,
-form #ssm-sd-submit,
-form #ssm-stp1-stp3,
-form #ssm-ciui-submit,
-form .ssm-resize-sizes input,
-form #ssm-riui-submit,
-form #ssm-ciui-submit,
-form #ssm-stp3-stp1,
-form #ssm-stp3-stp4,
-form #ssm-stp4-stp3,
-form #ssm-stp4-submit {
-    background: var(--color-text-light-highlight);
-    border: none;
-}
 
-form #ssm-sd-submit,
-form #ssm-stp1-stp3 {
-    width: 250px;
-}
+
+
+/* Crop Image */
+/* Convert Image */
+/* Settings - Default image folder */
+/* Settings - Default compendium */
+
+
+
+
 
 form .ssm-input-grid p,
 form .ssm-input-grid .ssm-grid-centered,
@@ -114,11 +144,6 @@ form .ssm-input-grid input,
 form .ssm-div-card input,
 .ssm-config-radio-select label {
     color: var(--color-text-light-highlight);
-}
-
-.ssm-app form p {
-    font-size: 125%;
-    font-family: "Times New Roman";
 }
 
 .ssm-grid-centered,
@@ -138,21 +163,7 @@ form .button-continue {
     margin-top: 10px;
 }
 
-.ssm-app ol {
-    padding: 0;
-    list-style-type: none;
-}
-
-.ssm-app ol li {
-    margin: 0 0 5px 10px;
-    padding: 5px;
-    border: 1px solid var(--color-text-light-highlight);
-    border-radius: 2px;
-    box-shadow: 0 0 10px #642700;
-}
-
 #scene-scroller-maker-pick-form .window-content {
-    background: url(/ui/denim075.png) repeat;
     padding: 0px;
 }
 
