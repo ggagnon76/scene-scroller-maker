@@ -40,7 +40,7 @@
                     <li class="ssm-grid-items-centered ssm-div-card" data-division-ID="{{this.drawingID}}" style="box-shadow: 0 0 20px {{this.drawingColor}} inset">
                         <label>{{localize 'SSM.SceneDividerUI.DivisionLabel'}}</label>
                         <input type="text" id="div-input-{{this.drawingID}}" value="{{this.subSceneName}}"/>
-                        <button type="submit" class="division-trash ssm-light-text" id="div-trash" data-id="{{this.drawingID}}"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="division-trash ssm-no-border ssm-light-text" id="div-trash" data-id="{{this.drawingID}}"><i class="fas fa-trash"></i></button>
                     </li>
                 {{/each}}
             </ol>
@@ -53,7 +53,7 @@
                         <label>{{localize 'SSM.SceneDividerUI.SubSceneNameLabel'}}</label>
                         <input type="text" id="div-input" name="subSceneName" placeholder="{{localize 'SSM.SceneDividerUI.SubSceneName'}}" value="{{inWorkDivTitle}}"/>
                         <div class="ssm-grid-centered">
-                            <button type="submit" id="div-continue" class="button-continue ssm-light-text">
+                            <button type="submit" id="div-continue" class="button-continue ssm-no-border ssm-light-text">
                                 {{localize 'SSM.Continue'}}
                             </button>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="ssm-new-div">
                         <label>{{localize 'SSM.SceneDividerUI.NewDivisionLabel'}}</label>
                         <div class="filepicker-fields">
-                            <button type="submit" id="ssm-stp1-stp2" class="button-new-div ssm-light-text">
+                            <button type="submit" id="ssm-stp1-stp2" class="button-new-div ssm-no-border ssm-light-text">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
@@ -76,7 +76,7 @@
                 <p>{{localize 'SSM.SceneDividerUI.Explanation9'}}</p>
             {{else}}
                 <div class="ssm-dividing-continue">
-                    <button type="submit" id="ssm-stp2-stp1" class="button-continue ssm-light-text">
+                    <button type="submit" id="ssm-stp2-stp1" class="button-continue ssm-no-border ssm-light-text">
                         {{localize 'SSM.Continue'}}
                     </button>
                 </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            {{#unless isDefaultAndSet}}
+            {{#if isDefaultAndNotSet}}
                 <div class="ssm-config-path-select">
                     <div class="ssm-grid-items-centered ssm-input-grid">
                         <label for="ssm-path-choice-current">{{localize 'SSM.DefaultImgPathMenu.CurrentLabel'}}</label>
@@ -120,14 +120,14 @@
                         {{filePicker target="ssm-path-choice-current" type="folder"}}
                     </div>
                 </div>
-            {{/unless}}
+            {{/if}}
         {{/if}}
 
         {{#if step4}}  {{! User has to select save location for the new sub-scene(s)}}
             <p>{{localize 'SSM.SceneDividerUI.CompSaveWhere'}}</p>
             <div class="ssm-config-radio-select">
                 <div class="ssm-radio-w-label">
-                    <input type="radio" name="ssm-scene-loc" id="default-scene-comp" value="1"/>
+                    <input type="radio" name="ssm-scene-loc" id="default-scene-comp" value="1" {{#unless hasDefaultCompPath}}disabled {{/unless}}{{#if sceneRadio1}}checked{{/if}}/>
                     <label for="default-scene-comp">
                         {{#unless hasDefaultCompPath}}
                             {{localize "SSM.SceneDividerUI.CompNoDefault"}}
@@ -138,19 +138,19 @@
                 </div>
                 <div class="ssm-config-radio-select">
                     <div class="ssm-radio-w-label">
-                        <input type="radio" name="ssm-scene-loc" id="select-comp" value="2"/>
+                        <input type="radio" name="ssm-scene-loc" id="select-comp" value="2" {{#if sceneRadio2}}checked{{/if}}/>
                         <label for="select-comp">{{localize "SSM.SceneDividerUI.CompChooseExisting"}}</label>
                     </div>
                 </div>
                 <div class="ssm-config-radio-select">
                     <div class="ssm-radio-w-label">
-                        <input type="radio" name="ssm-scene-loc" id="create-comp" value="3"/>
+                        <input type="radio" name="ssm-scene-loc" id="create-comp" value="3" {{#if sceneRadio3}}checked{{/if}}/>
                         <label for="create-comp">{{localize "SSM.SceneDividerUI.CompMakeNew"}}</label>
                     </div>
                 </div>
                 <div class="ssm-config-radio-select">
                     <div class="ssm-radio-w-label">
-                        <input type="radio" name="ssm-scene-loc" id="select-scene-folder" value="4"/>
+                        <input type="radio" name="ssm-scene-loc" id="select-scene-folder" value="4" {{#if sceneRadio4}}checked{{/if}}/>
                         <label for="select-scene-folder">{{localize "SSM.SceneDividerUI.SceneFolderChoice"}}</label>
                     </div>
                 </div>
@@ -161,6 +161,37 @@
                     </div>
                 </div>
             </div>
+            {{#if sceneRadio1}}
+                <div class="ssm-config-path-select">
+                    <div class="ssm-grid-items-centered ssm-input-grid">
+                        <label for="ssm-scene-choice-current">{{localize 'SSM.SceneDividerUI.CompIsDefault'}}</label>
+                        <input type="text" name="ssm-scene-choice-current" value="{{defaultCompendium}}"/>        
+                    </div>
+                </div>
+            {{/if}}
+            {{#if sceneRadio2}}
+                <div class="ssm-comp-sel">
+                    <label for="ssm-scene-choice-current">{{localize 'SSM.SceneDividerUI.CompSelect'}}</label>
+                    <select name="ssm-scene-choice-current" id="z_comp_sel">
+                        <option value="{{selectedCompendium}}">{{selectedCompendium}}</option>
+                        {{#each compendiumList}}
+                            <option value="{{this}}"
+                            {{#if (comp_equal ../compendium)}}
+                                selected
+                            {{/if}}
+                            >{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            {{/if}}
+            {{#if sceneRadio3}}
+                <div class="ssm-config-path-select">
+                    <div class="ssm-grid-items-centered ssm-input-grid">
+                        <label for="ssm-scene-choice-current">{{localize 'SSM.SceneDividerUI.CompIsNew'}}</label>
+                        <input type="text" name="ssm-scene-choice-current" value="{{selectedCompendium}}"/>        
+                    </div>
+                </div>
+            {{/if}}
         {{/if}}
 
         <hr />
@@ -169,9 +200,9 @@
         {{! ***************************************************************************************************************************** }}
         {{! Footer with buttons }}
         {{! ***************************************************************************************************************************** }}
-        {{#if step1Ready}}  {{! If we're at step 1 AND sub-scenes exist, then display a continue button.}}
+        {{#if step1Ready}}  {{! If we're at step 1 AND sub-scenes exist, then display a Next button.}}
             <div class="ssm-grid-centered">
-                <button type="submit" class="ssm-light-text ssm-no-border ssm-button-250px">
+                <button type="submit" id="ssm-stp1-stp3" class="ssm-light-text ssm-no-border ssm-button-250px">
                     {{localize 'SSM.Next'}}
                 </button>
             </div>
@@ -180,12 +211,12 @@
         {{#if step3}}
             <div class="ssm-grid-two-buttons">
                 <div class="button-continue">
-                    <button type="submit" class="ssm-light-text ssm-no-border">
+                    <button type="submit" id="ssm-stp3-stp1" class="ssm-light-text ssm-no-border">
                         {{localize 'SSM.Previous'}}
                     </button>
                 </div>
                 <div class="button-continue">
-                    <button type="submit" class="ssm-light-text ssm-no-border">
+                    <button type="submit" id="ssm-stp3-stp4" class="ssm-light-text ssm-no-border">
                         {{localize 'SSM.Next'}}
                     </button>
                 </div>
@@ -195,12 +226,12 @@
         {{#if step4}}
             <div class="ssm-grid-two-buttons">
                 <div class="button-continue">
-                    <button type="submit" class="ssm-light-text ssm-no-border">
+                    <button type="submit" id="ssm-stp4-stp3" class="ssm-light-text ssm-no-border">
                         {{localize 'SSM.Previous'}}
                     </button>
                 </div>
                 <div class="button-continue">
-                    <button type="submit" class="ssm-light-text ssm-no-border ssm-button-250px">
+                    <button type="submit" id="ssm-stp4-submit" class="ssm-light-text ssm-no-border">
                         {{localize 'SSM.Submit'}}
                     </button>
                 </div>

@@ -21,11 +21,15 @@
             "CompSaveLocation2" : "Otherwise, choose from the other options.",
             "CompSaveWhere" : "Select location to save the sub-scenes:",
             "CompNoDefault" : "This option becomes enabled if a default scene compendium is selected in the module settings.",
-            "CompSaveDefault" : "Use the default scene compendium from the module settings?",
-            "CompChooseExisting" : "Select from existing compendiums?",
-            "CompMakeNew" : "Create a new scene compendium and save there?",
+            "CompSaveDefault" : "Save to the default scene compendium from the module settings?",
+            "CompChooseExisting" : "Select and save to existing compendium?",
+            "CompMakeNew" : "Create and save to a new scene compendium?",
             "SceneFolderChoice" : "Save in the scene folder?",
             "EmbedInScene" : "Embed sub-scene creation data in scene flags and create sub-scenes at a later time?  (Not implemented yet)",
+            "CompIsDefault" : "Default compendium: ",
+            "CompSelect" : "Select Compendium: ",
+            "CompNoneSelected" : "No Selection",
+            "CompIsNew" : "Name of new scene compendium: ",
             "Explanation4" : "This application will create a new scene compendium.  You must provide a name for this compendium.",
             "CompendiumName": "New Compendium Name:",
             "Explanation5" : "Create new divisions by clicking on the 'PLUS' button at the bottom right.",
@@ -66,7 +70,8 @@
         },
         "CropImageUI" : {
             "Title" : "Crop Image Instructions and Submit",
-            "Instructions1" : "Use the drawing tool to cover the area to keep with shapes.  Can use rectangles, circles or oddly shaped polygons.  The only requirement is the drawing shapes overlap at least one other shape."
+            "Instructions1" : "Use the drawing tool to cover the area to keep with shapes.  Can use rectangles, circles or polygons.  The only requirement is the drawing shapes overlap at least one other shape.",
+            "Instructions2" : "However, there is a bug with the Clipper library.  To avoid it, you must draw your shape starting from the top towards the bottom, or from the right towards the left.  If you do not, you will either get holes in the image, or the crop will fail with a warning stating you did not overlap your shapes."
         },
         "MenuButtons" : {
             "ImageTools" : {

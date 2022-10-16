@@ -1,4 +1,13 @@
 /* Used in multiple templates*/
+#ssm-scene-divider .window-content,                 /* WHEN ELECTRON APP SUPPORTS :HAS(), CAN REPLACE THIS WHOLE UGLY BLOCK WITH: */
+#ssm-convert-image .window-content,                 /* .window-app .window-content:has(.ssm-app) */
+#ssm-resize-image .window-content,
+#ssm-crop-image .window-content,
+#ssm-settings-select-compendium .window-content,
+#ssm-settings-select-img-path .window-content  {    
+    background: url(/ui/denim075.png) repeat;    
+}
+
 .ssm-app {
     color: var(--color-text-light-highlight);
     max-height: 50vh;
@@ -16,10 +25,6 @@
     max-height: 90vh;
 }
 
-.ssm-app .window-content {
-    background: url(/ui/denim075.png) repeat;    
-}
-
 .ssm-app .filepicker-fields {
     display: flex;
     flex-direction: row;
@@ -27,6 +32,11 @@
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 5px;
+}
+
+.ssm-app .filepicker-fields .file-picker {
+    background: var(--color-text-light-highlight);
+    border: none;
 }
 
 .ssm-app .ssm-grid-items-centered {
@@ -50,6 +60,12 @@
     border: 1px solid var(--color-text-light-highlight);
     border-radius: 2px;
     box-shadow: 0 0 10px #642700;
+}
+
+.ssm-app .ssm-comp-sel {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 30% auto;
 }
 
 .ssm-app .ssm-input-grid {
