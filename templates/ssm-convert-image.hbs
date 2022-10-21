@@ -13,8 +13,8 @@
                 <div class="ssm-input-grid ssm-grid-items-centered">
                     <label>{{localize 'SSM.ConvertImageUI.Label.image'}}</label>
                     <div class="filepicker-fields">
-                        {{filePicker target="imagePath" type="image"}}
-                        <input type="text" id="ssm-ciui-path" name="imagePath" value="{{path}}"/>
+                        {{#unless useDefault}}{{filePicker target="imagePath" type="image"}}{{/unless}}
+                        <input type="text" id="ssm-ciui-path" name="imagePath" value="{{path}}" {{#if useDefault}}disabled{{/if}}/>
                     </div>
                 </div>
             {{/if}}
@@ -42,7 +42,7 @@
                     </label>
                 </div>
                 <div class="ssm-radio-w-label">
-                    <input type="radio" name="ssm-ciui-path" id="ciui-same-folder" value="2" {{#if imgRadio2}}checked{{/if}}/>
+                    <input type="radio" name="ssm-ciui-path" id="ciui-same-folder" value="2" {{#if useDefault}}disabled{{/if}} {{#if imgRadio2}}checked{{/if}}/>
                     <label for="ciui-same-folder">{{localize "SSM.ConvertImageUI.SameFolder"}}</label>
                 </div>
             </div>

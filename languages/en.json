@@ -151,7 +151,8 @@
             "notOverlapping" : "The drawn shapes produced two or more groups of shapes.  All shapes must be drawn to overlap at least one preceding shape to produce one continous area of coverage."
         },
         "ConvertBackground" : {
-            "noBackground" : "There is no background assigned to this scene."
+            "noBackground" : "There is no background assigned to this scene.",
+            "remoteAndNoDefault" : "In order to use this feature with a file that is hosted remotely, a default image save location must be defined in module settings."
         },
         "ScaleScene" : {
             "noScene" : "There is no active scene to resize."
