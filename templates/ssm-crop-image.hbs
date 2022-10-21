@@ -2,13 +2,6 @@
     <form>
         <p>{{localize 'SSM.CropImageUI.Instructions1'}}</p>
         <p>{{localize 'SSM.CropImageUI.Instructions2'}}</p>
-        {{#if isCompression}}
-            <div class="ssm-grid-items-centered ssm-compression-slider">
-                <label>{{localize 'SSM.ConvertImageUI.Compression'}}</label>
-                <input type="range" name="compression" value="{{compression}}" min="0.7" max="1.0" step="0.01"/>
-                <span class="ssm-no-border">{{compression}}</span>
-            </div>
-        {{/if}}
         <div class="ssm-grid-centered">
             <div class="ssm-dividing-continue">
                 <button type="submit" id="ssm-ciui-submit" name="submit" class="button-continue ssm-light-text ssm-no-border">

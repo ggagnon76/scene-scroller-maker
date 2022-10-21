@@ -58,7 +58,9 @@
                 "image" : "Image File Path:",
                 "folder" : "Path to image folder:"
             },
-            "Compression" : "Compression percentage:"
+            "Compression" : "Compression percentage:",
+            "SameFolder" : "Save images in the same folder as their originals",
+            "SaveInFolder" : "Save in folder: "
         },
         "ResizeImageUI" : {
             "Title" : "Resize Image Controls and Submit",
