@@ -4,7 +4,8 @@
 #ssm-resize-image .window-content,
 #ssm-crop-image .window-content,
 #ssm-settings-select-compendium .window-content,
-#ssm-settings-select-img-path .window-content  {    
+#ssm-settings-select-img-path .window-content,
+#ssm-confirmation-dialog .window-content  {    
     background: url(/ui/denim075.png) repeat;    
 }
 

@@ -1,5 +1,7 @@
 {
     "SSM" : {
+        "Yes": "Yes",
+        "No" : "No",
         "Continue": "Continue",
         "Next" : "Next",
         "Previous" : "Previous",
@@ -25,7 +27,7 @@
             "CompChooseExisting" : "Select and save to existing compendium?",
             "CompMakeNew" : "Create and save to a new scene compendium?",
             "SceneFolderChoice" : "Save in the scene folder?",
-            "EmbedInScene" : "Embed sub-scene creation data in scene flags and create sub-scenes at a later time?  (Not implemented yet)",
+            "EmbedInScene" : "Embed sub-scene creation data in scene flags and create sub-scenes at a later time?",
             "CompIsDefault" : "Default compendium: ",
             "CompSelect" : "Select Compendium: ",
             "CompNoneSelected" : "No Selection",
@@ -50,7 +52,10 @@
             "ConfirmUsePack1": "Compendium pack ",
             "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?",
             "CompCreate" : "Create Compendium With Sub-Scenes",
-            "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags."
+            "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags.",
+            "SavedToFlags" : "Division data stored to scene flags for later use.",
+            "LoadFlagsTitle" : "Use Flag Data Confirmation",
+            "LoadFlagsContent" : "Do you wish to display data stored in this scene's flags?"
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",
