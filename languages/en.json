@@ -1,11 +1,16 @@
 {
     "SSM" : {
+        "Yes": "Yes",
+        "No" : "No",
         "Continue": "Continue",
         "Next" : "Next",
         "Previous" : "Previous",
         "Processing": "Processing",
         "Submit" : "Submit",
         "SaveDefault" : "Save as default",
+        "ToggleSSM" : "Toggle SSM Menu",
+        "MenuToggle" : "Should the menu buttons be visible?",
+        "MenuToggleHint" : "It will be possible to hot swap this setting from the active scene in the Scene Navigation menu.",
         "SceneDividerUI" : {
             "Title" : "Scene Scroller Maker: Scene Divider",
             "Explanation1" : "This application will guide you through dividing a complete scene to make one or several sub-scenes from it.  The sub-scenes can then be used on their own, or they can be stitched together on a canvas using the Scene Tiler module.",
@@ -25,7 +30,7 @@
             "CompChooseExisting" : "Select and save to existing compendium?",
             "CompMakeNew" : "Create and save to a new scene compendium?",
             "SceneFolderChoice" : "Save in the scene folder?",
-            "EmbedInScene" : "Embed sub-scene creation data in scene flags and create sub-scenes at a later time?  (Not implemented yet)",
+            "EmbedInScene" : "Embed sub-scene creation data in scene flags and create sub-scenes at a later time?",
             "CompIsDefault" : "Default compendium: ",
             "CompSelect" : "Select Compendium: ",
             "CompNoneSelected" : "No Selection",
@@ -50,7 +55,10 @@
             "ConfirmUsePack1": "Compendium pack ",
             "ConfirmUsePack2": " for scenes already exists.  Do you wish to add the sub-scenes to this pack?",
             "CompCreate" : "Create Compendium With Sub-Scenes",
-            "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags."
+            "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags.",
+            "SavedToFlags" : "Division data stored to scene flags for later use.",
+            "LoadFlagsTitle" : "Use Flag Data Confirmation",
+            "LoadFlagsContent" : "Do you wish to display data stored in this scene's flags?"
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",
