@@ -63,6 +63,7 @@ Hooks.once('ready', () => {
 })
 
 Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
+    if ( !game.user.isGM ) return;
     populateMenuButtons(toolGroup);
 });
 
