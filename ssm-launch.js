@@ -46,10 +46,11 @@ Hooks.once('init', () => {
         name: game.i18n.localize("SSM.MenuToggle"),
         hint: game.i18n.localize("SSM.MenuToggleHint"),
         scope: "client",
-        config: true,
+        config: false,
         requiresReload: false,
         type: Boolean,
         default: true,
+        restricted: true,
         onChange: () => Hooks.call('reloadModuleButtons')
     })
 })
@@ -60,10 +61,13 @@ Hooks.once('ready', () => {
     if ( !getCompendiumPack(defaultCompendium) ) {
         game.settings.set(ModuleName, "defaultSceneCompendium", "");
     }
+
+    if ( !game.user.isGM ) {
+        game.settings.set(ModuleName, "SSM_MenuToggle", false)
+    }
 })
 
 Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
-    if ( !game.user.isGM ) return;
     populateMenuButtons(toolGroup);
 });
 
@@ -73,9 +77,12 @@ Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
         icon: "<i class='fas fa-puzzle-piece'></i>",
         condition: li => game.user.isGM && game.scenes.get(li.data("sceneId")).active,
         callback: () => {
-            const setting = game.settings.get(ModuleName, "SSM_MenuToggle")
-            game.settings.set(ModuleName, "SSM_MenuToggle", !setting);
-            Hooks.call('reloadModuleButtons');
+            if ( !game.user.isGM ) {
+                game.settings.set(ModuleName, "SSM_MenuToggle", false);
+            } else {
+                const setting = game.settings.get(ModuleName, "SSM_MenuToggle")
+                game.settings.set(ModuleName, "SSM_MenuToggle", !setting);
+            }
         }
     })
 })
