@@ -6,6 +6,8 @@
         "Processing": "Processing",
         "Submit" : "Submit",
         "SaveDefault" : "Save as default",
+        "Yes" : "Yes",
+        "No" : "No",
         "SceneDividerUI" : {
             "Title" : "Scene Scroller Maker: Scene Divider",
             "Explanation1" : "This application will guide you through dividing a complete scene to make one or several sub-scenes from it.  The sub-scenes can then be used on their own, or they can be stitched together on a canvas using the Scene Tiler module.",
