@@ -1,36 +1,36 @@
-<section class="ssm-app">
+<section class="ssm-app ssm-light-text">
     <form>
         {{#if step1}}  {{!  Choose the folder/file and compression value}}
             {{#if isBatch}}
-                <div class="ssm-input-grid ssm-grid-items-centered">
+                <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered">
                     <label>{{localize 'SSM.ConvertImageUI.Label.folder'}}</label>
                     <div class="filepicker-fields">
                         {{filePicker target="folderPath" type="folder"}}
-                        <input type="text" id="ssm-ciui-path" name="folderPath" value="{{path}}"/>
+                        <input class="ssm-light-text" type="text" id="ssm-ciui-path" name="folderPath" value="{{path}}"/>
                     </div>
                 </div>
             {{else}}
-                <div class="ssm-input-grid ssm-grid-items-centered">
+                <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered">
                     <label>{{localize 'SSM.ConvertImageUI.Label.image'}}</label>
                     <div class="filepicker-fields">
                         {{#unless useDefault}}{{filePicker target="imagePath" type="image"}}{{/unless}}
-                        <input type="text" id="ssm-ciui-path" name="imagePath" value="{{path}}" {{#if useDefault}}disabled{{/if}}/>
+                        <input class="ssm-light-text" type="text" id="ssm-ciui-path" name="imagePath" value="{{path}}" {{#if useDefault}}disabled{{/if}}/>
                     </div>
                 </div>
             {{/if}}
             <div class="ssm-grid-items-centered ssm-compression-slider">
-                <label>{{localize 'SSM.ConvertImageUI.Compression'}}</label>
+                <label class="ssm-light-text">{{localize 'SSM.ConvertImageUI.Compression'}}</label>
                 <input type="range" name="ssm-ciui-compression" id="ssm-ciui-compression" value="{{compression}}" min="0.7" max="1.0" step="0.01"/>
-                <span class="ssm-no-border">{{compression}}</span>
+                <span class="ssm-no-border ssm-light-text">{{compression}}</span>
             </div>
-            <div class="ssm-grid-centered">
-                <button type="submit" id="ssm-ciui-stp1-stp2" class="button-continue ssm-light-text ssm-no-border">
+            <div class="ssm-span2 ssm-flex-j-center">
+                <button type="submit" id="ssm-ciui-stp1-stp2" class="button-continue ssm-light-background ssm-dark-text ssm-no-border">
                     {{localize 'SSM.Next'}}
                 </button>
             </div>
         {{/if}}
         {{#if step2}}  {{! Choose to save to default folder or in same folder }}
-            <div class="ssm-config-radio-select">
+            <div class="ssm-config-radio-select ssm-light-text">
                 <div class="ssm-radio-w-label">
                     <input type="radio" name="ssm-ciui-path" id="ciui-default-path" value="1" {{#unless hasDefaultImgPath}}disabled {{/unless}}{{#if imgRadio1}}checked{{/if}}/>
                     <label for="ciui-default-path">
@@ -47,20 +47,20 @@
                 </div>
             </div>
             <div class="ssm-config-path-select">
-                <div class="ssm-grid-items-centered ssm-input-grid">
+                <div class="ssm-grid-items-centered ssm-input-grid ssm-light-text">
                     <label for="ciui-choice-location">{{localize "SSM.ConvertImageUI.SaveInFolder"}}</label>
-                    <input type="text" name="ciui-choice-location" value="{{saveLocation}}"/>
+                    <input class="ssm-light-text" type="text" name="ciui-choice-location" value="{{saveLocation}}"/>
                 </div>
             </div>
             <hr />
             <div class="ssm-grid-two-buttons">
                 <div class="button-continue">
-                    <button type="submit" id="ssm-ciui-stp2-stp1" class="ssm-light-text ssm-no-border">
+                    <button type="submit" id="ssm-ciui-stp2-stp1" class="ssm-light-background ssm-dark-text ssm-no-border">
                         {{localize 'SSM.Previous'}}
                     </button>
                 </div>
                 <div class="button-continue">
-                    <button type="submit" id="ssm-ciui-stp2-submit" class="ssm-light-text ssm-no-border">
+                    <button type="submit" id="ssm-ciui-stp2-submit" class="ssm-light-background ssm-dark-text ssm-no-border">
                         {{localize 'SSM.Submit'}}
                     </button>
                 </div>

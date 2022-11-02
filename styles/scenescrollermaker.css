@@ -1,3 +1,4 @@
+/* ***************************************************************************************** */
 /* Used in multiple templates*/
 #ssm-scene-divider .window-content,                 /* WHEN ELECTRON APP SUPPORTS :HAS(), CAN REPLACE THIS WHOLE UGLY BLOCK WITH: */
 #ssm-convert-image .window-content,                 /* .window-app .window-content:has(.ssm-app) */
@@ -10,13 +11,11 @@
 }
 
 .ssm-app {
-    color: var(--color-text-light-highlight);
     max-height: 50vh;
 }
 
 .ssm-app .ssm-config-radio-select {
     margin: 0;
-    color: var(--color-text-light-highlight);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -36,7 +35,6 @@
 }
 
 .ssm-app .filepicker-fields .file-picker {
-    background: var(--color-text-light-highlight);
     border: none;
 }
 
@@ -85,134 +83,39 @@
     border: none;
 }
 
-.ssm-app .ssm-light-text {
-    background: var(--color-text-light-highlight);
-}
-
 .ssm-app .ssm-button-250px {
     width: 250px;
 }
 
-
-
-
-/* Initialize (build scene from flag data) */
-.ssm-app .ssm-picker-app {
-    margin: 0;
-    color: var(--color-text-light-highlight);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    box-shadow: 0 0 20px var(--color-shadow-dark);
-    padding: 0;
-    max-height: 90vh;
-}
-
-
-
-
-/* Scene Divider */
-.ssm-app .ssm-new-div {
-    display: grid;
-    grid-template-columns: auto 30px;
-    align-items: center;
-    justify-content: right;
-}
-
-.ssm-app .ssm-new-div label {
-    margin: 0 10px 0 0;
-}
-
-.ssm-div-card {
-    grid-template-columns: 75px auto 30px;
-}
-
-
-
-/* Resize Image */
-.ssm-resize-sizes {
-    grid-template-columns: 100px auto 100px auto;
-}
-
-.ssm-resize-sizes input[type="number"] {
-    width: 50px;
-}
-
-
-
-
-/* Crop Image */
-/* Convert Image */
-/* Settings - Default image folder */
-/* Settings - Default compendium */
-
-
-
-
-
-form .ssm-input-grid p,
-form .ssm-input-grid .ssm-grid-centered,
-form .ssm-div-card .ssm-grid-centered {
+.ssm-app .ssm-span2 {
     grid-column: 1 / span 2;
 }
 
-form .ssm-input-grid input,
-form .ssm-div-card input,
-.ssm-config-radio-select label {
+.ssm-app .ssm-light-background,
+.ssm-app .file-picker {
+    background: var(--color-text-light-highlight);
+}
+
+.ssm-app .ssm-dark-background {
+    background: var(--color-text-dark-primary);
+}
+
+.ssm-app .ssm-light-text {
     color: var(--color-text-light-highlight);
 }
 
-.ssm-grid-centered,
-.ssm-dividing-continue {
+.ssm-app .ssm-dark-text {
+    color: var(--color-text-dark-primary);
+}
+
+.ssm-app .ssm-flex-j-center {
     display: flex;
     justify-content: center;
 }
 
-.ssm-grid-centered .button-continue,
-form .button-continue {
+.ssm-app .button-continue {
     width: 150px;
     margin-top: 15px;
-}
-
-.ssm-input-grid .button-new-div {
-    width: 30px;
-    margin-top: 10px;
-}
-
-#scene-scroller-maker-pick-form .window-content {
-    padding: 0px;
-}
-
-.ssm-seed-scene-select {
-    display: grid;
-    grid-template-columns: auto;
-    align-content: center;
-}
-
-.ssm-seed-scene-select ol {
-    padding: 5px;
-    margin: 5px;
-    list-style: none;
-}
-
-.ssm-seed-scene-select option,
-.ssm-config-radio-select,
-#z_comp_sel option {
-    color: var(--color-text-dark-primary);
-}
-
-.ssm-seed-scene-select li,
-#ssm-comp-choice-current {
-    display: grid;
-    grid-template-columns: 150px auto;
-    padding: 5px;
-}
-
-.ssm-text-w-label {
-    display: grid;
-    grid-template-columns: 50px 160px auto;
-    padding: 10px;
 }
 
 .ssm-radio-w-label {
@@ -227,42 +130,117 @@ form .button-continue {
     padding: 10px;
 }
 
-.ssm-text-w-label label,
-#ssm-comp-choice-current label {
-    align-self: center;
-}
-
-#z_comp_sel,
-#z_scene_sel,
-#ssm-comp-choice-current input,
-.ssm-config-choice-select input,
-.ssm-text-w-label input {
-    color: var(--color-text-light-highlight);
-}
-
-.ssm-config-radio-select footer,
-.ssm-config-path-select footer {
-    padding: 10px
-}
-
-form .ssm-filepicker-button .file-picker {
+.ssm-app .ssm-filepicker-button .file-picker {
     background-color: var(--color-text-light-highlight);
     color: var(--color-text-dark-primary);
     border: none;
 }
 
-form #ssm-config-path-submit {
+.ssm-app .ssm-grid-two-buttons {
+    display: grid;
+    grid-template-columns: 155px 155px;
+    justify-content: center;
+}
+
+/* ***************************************************************************************** */
+/* Initialize (build scene from flag data) */
+.ssm-app .ssm-picker-app {
+    margin: 0;
+    color: var(--color-text-light-highlight);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    box-shadow: 0 0 20px var(--color-shadow-dark);
+    padding: 0;
+    max-height: 90vh;
+}
+
+.ssm-seed-scene-select {
+    display: grid;
+    grid-template-columns: auto;
+    align-content: center;
+}
+
+.ssm-seed-scene-select ol {
+    padding: 5px;
+    margin: 5px;
+    list-style: none;
+}
+
+.ssm-seed-scene-select li {
+    display: grid;
+    grid-template-columns: 150px auto;
+    padding: 5px;
+}
+
+
+/* ***************************************************************************************** */
+/* Scene Divider */
+.ssm-app .ssm-new-div {
+    display: grid;
+    grid-template-columns: auto 30px;
+    align-items: center;
+    justify-content: right;
+}
+
+.ssm-app .ssm-new-div label {
+    margin: 0 10px 0 0;
+}
+
+.ssm-app .ssm-div-card {
+    grid-template-columns: 75px auto 30px;
+}
+
+.ssm-app .button-new-div {
+    width: 30px;
+    margin-top: 10px;
+}
+
+
+/* ***************************************************************************************** */
+/* Resize Image */
+.ssm-app .ssm-resize-sizes {
+    grid-template-columns: 100px auto 100px auto;
+}
+
+.ssm-app .ssm-resize-sizes input[type="number"] {
+    width: 50px;
+}
+
+
+
+/* ***************************************************************************************** */
+/* Crop Image */
+
+/* ***************************************************************************************** */
+/* Convert Image */
+
+/* ***************************************************************************************** */
+/* Settings - Default image folder */
+
+.ssm-app #ssm-config-path-submit {
     background: var(--color-text-light-highlight);
     border: none;
     width: 250px;
 }
 
-.ssm-config-path-select .ssm-grid-centered {
-    grid-column: 1 / span 2;
+/* ***************************************************************************************** */
+/* Settings - Default compendium */
+
+.ssm-text-w-label {
+    display: grid;
+    grid-template-columns: 50px 160px auto;
+    padding: 10px;
 }
 
-.ssm-grid-two-buttons {
-    display: grid;
-    grid-template-columns: 155px 155px;
-    justify-content: center;
+.ssm-text-w-label label,
+#ssm-comp-choice-current label {
+    align-self: center;
 }
+
+.ssm-app .ssm-p10 {
+    padding: 10px
+}
+
+/* ***************************************************************************************** */

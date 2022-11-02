@@ -3,10 +3,10 @@
         <ol >
             <li>
                 <label for="z_comp_sel">{{compSelectText}}</label>
-                <select name="z_comp_sel" id="z_comp_sel">
-                    <option value="no_selection">{{defaultSelect}}</option>
+                <select class="ssm-light-text" name="z_comp_sel" id="z_comp_sel">
+                    <option class="ssm-dark-text" value="no_selection">{{defaultSelect}}</option>
                     {{#each compendiumList}}
-                        <option value="{{this}}"
+                        <option class="ssm-dark-text" value="{{this}}"
                         {{#if (comp_equal ../compendium)}}
                             selected
                         {{/if}}
@@ -21,9 +21,9 @@
                         disabled
                     {{/unless}}
                 >
-                    <option value="no_selection">{{defaultSelect}}</option>
+                    <option class="ssm-dark-text" value="no_selection">{{defaultSelect}}</option>
                     {{#each sceneList}}
-                        <option value="{{this}}">{{this}}</option>
+                        <option class="ssm-dark-text" value="{{this}}">{{this}}</option>
                     {{/each}}
                 </select>
             </li>

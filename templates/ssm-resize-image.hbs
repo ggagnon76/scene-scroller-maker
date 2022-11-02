@@ -1,14 +1,14 @@
 <section class="ssm-app">
     <form>
         <div class="ssm-grid-items-centered ssm-resize-sizes">
-            <label>{{localize 'SSM.ResizeImageUI.Label.width'}}</label>
-            <input type="number" class="ssm-light-text ssm-no-border" id="ssm-resize-width" value="{{tileWidth}}"/>
-            <label>{{localize 'SSM.ResizeImageUI.Label.height'}}</label>
-            <input type="number" class="ssm-light-text ssm-no-border" id="ssm-resize-height" value="{{tileHeight}}"/>
+            <label class="ssm-light-text">{{localize 'SSM.ResizeImageUI.Label.width'}}</label>
+            <input type="number" class="ssm-light-background ssm-dark-text ssm-no-border" id="ssm-resize-width" value="{{tileWidth}}"/>
+            <label class="ssm-light-text">{{localize 'SSM.ResizeImageUI.Label.height'}}</label>
+            <input type="number" class="ssm-light-background ssm-dark-text ssm-no-border" id="ssm-resize-height" value="{{tileHeight}}"/>
         </div>
-        <p>{{localize 'SSM.ResizeImageUI.Instructions1'}}</p>
-        <div class="ssm-grid-centered">
-            <button type="submit" class="button-continue ssm-light-text ssm-no-border ssm-button-250px" id="ssm-riui-submit" name="submit">
+        <p class="ssm-light-text">{{localize 'SSM.ResizeImageUI.Instructions1'}}</p>
+        <div class="ssm-span2 ssm-flex-j-center">
+            <button type="submit" class="button-continue ssm-light-background ssm-dark-text ssm-no-border ssm-button-250px" id="ssm-riui-submit" name="submit">
                 {{localize 'SSM.Submit'}}
             </button>
         </div>

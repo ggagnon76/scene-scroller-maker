@@ -1,6 +1,5 @@
-import { SSM_SelectDefaultCompendium, SSM_SelectDefaultImgPath } from "./lib/forms.js";
+import { SSM_SelectDefaultCompendium, SSM_SelectDefaultImgPath } from "./lib/settings.js";
 import { populateMenuButtons, getCompendiumPack } from "./lib/functions.js";
-import { Texture2Polygon } from "./lib/poly_from_texture.js";
 
 // Convenience variable to insert the module name where required
 export const ModuleName = "scene-scroller-maker";
@@ -8,7 +7,6 @@ export const ModuleName = "scene-scroller-maker";
 export const ModuleTitle = "Scene Scroller Maker"
 
 Hooks.once('init', () => {
-    game.modules.get(ModuleName).api = Texture2Polygon;
 
     game.settings.register(ModuleName, "defaultImagePath", {
         scope: "world",
@@ -56,6 +54,7 @@ Hooks.once('init', () => {
 })
 
 Hooks.once('ready', () => {
+
     const defaultCompendium = game.settings.get(ModuleName, "defaultSceneCompendium");
     // If the compendium set as default was deleted
     if ( !getCompendiumPack(defaultCompendium) ) {
@@ -71,6 +70,7 @@ Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
     populateMenuButtons(toolGroup);
 });
 
+/** Start of Development code.  Not released yet. */
 Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
     contextOptions.push({
         name: 'SSM.ToggleSSM',
@@ -86,3 +86,4 @@ Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
         }
     })
 })
+/** End of Development code. */

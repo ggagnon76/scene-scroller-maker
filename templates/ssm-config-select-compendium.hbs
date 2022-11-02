@@ -1,9 +1,9 @@
-<section class="ssm-app">
-    <div class="ssm-input-grid ssm-grid-items-centered" id="ssm-comp-choice-current">
+<section class="ssm-app ssm-light-text">
+    <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered" id="ssm-comp-choice-current">
         <label for="ssm-comp-choice-current">{{localize "SSM.DefaultSceneCompendiumMenu.CurrentLabel"}}</label>
         <input type="text" name="ssm-comp-choice-current" value="{{current}}"/>        
     </div>
-    <form class="ssm-config-radio-select">
+    <form class="ssm-config-radio-select ssm-light-text">
         {{#if noRadio}}
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="create-comp" value="1"/>
@@ -56,7 +56,7 @@
         {{/if}}
 
         {{#if submitRadio}}
-            <footer class="ssm-grid-centered">
+            <footer class="ssm-span2 ssm-p10">
                 <button type="submit" name="submit" class="ssm-light-text ssm-no-border ssm-button-250px">
                     <i class="far fa-save"></i> {{localize "SSM.SaveDefault"}}
                 </button>
