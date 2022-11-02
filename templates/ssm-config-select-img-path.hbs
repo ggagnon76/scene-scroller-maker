@@ -1,13 +1,13 @@
-<section class="ssm-app ssm-light-text">
+<section class="ssm-app">
     <form class="ssm-config-path-select">
         <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered">
             <label for="ssm-path-choice-current">{{localize 'SSM.DefaultImgPathMenu.CurrentLabel'}}</label>
-            <input type="text" name="ssm-path-choice-current" value="{{current}}"/>        
+            <input class="ssm-light-text" type="text" name="ssm-path-choice-current" value="{{current}}"/>        
         </div>
         <div class="ssm-filepicker-button">
             {{filePicker target="ssm-path-choice-current" type="folder"}}
         </div>
-        <footer class="ssm-span2">
+        <footer class="ssm-span2 ssm-flex-j-center ssm-p10">
             <button type="submit" name="submit" id="ssm-config-path-submit">
                 <i class="far fa-save"></i> {{localize 'SSM.SaveDefault'}}
             </button>

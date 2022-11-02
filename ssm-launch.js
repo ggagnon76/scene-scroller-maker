@@ -1,5 +1,5 @@
 import { SSM_SelectDefaultCompendium, SSM_SelectDefaultImgPath } from "./lib/settings.js";
-import { populateMenuButtons, getCompendiumPack } from "./lib/functions.js";
+import { populateMenuButtons, getCompendiumPack, processFlaggedDivisionData } from "./lib/functions.js";
 
 // Convenience variable to insert the module name where required
 export const ModuleName = "scene-scroller-maker";
@@ -7,6 +7,8 @@ export const ModuleName = "scene-scroller-maker";
 export const ModuleTitle = "Scene Scroller Maker"
 
 Hooks.once('init', () => {
+
+    game.modules.get(ModuleName).API = {processFlaggedDivisionData};
 
     game.settings.register(ModuleName, "defaultImagePath", {
         scope: "world",

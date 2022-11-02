@@ -58,7 +58,13 @@
             "SceneScrollerNoFlags" : "Scene Scroller module not active.  Extra data for that module has not been embedded in the compendium scene flags.",
             "SavedToFlags" : "Division data stored to scene flags for later use.",
             "LoadFlagsTitle" : "Use Flag Data Confirmation",
-            "LoadFlagsContent" : "Do you wish to display data stored in this scene's flags?"
+            "LoadFlagsContent" : "Do you wish to display data stored in this scene's flags?",
+            "NoImgPathErr" : "No image path save location provided and no default image path save location set in module settings.  Aborting!",
+            "NoNewCompNameErr" : "newCompendium argument set to TRUE, but no compendiumName argument provided.  Aborting!",
+            "AlreadyCompNameErr" : "newCompendium argument set to TRUE, but compendium with compendiumName argument already exists.  Aborting!",
+            "CompCreateFailErr" : "Unexpected core Foundry error trying to create new compendium with provided compendiumName argument.  Aborting!",
+            "NoExistingCompErr" : "newCompendium argument set to FALSE, but compendium with compendiumName argument doesn't exist.  Aborting!",
+            "NoFlagDataErr" : "No division data found in scene flags.  Aborting!"
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",

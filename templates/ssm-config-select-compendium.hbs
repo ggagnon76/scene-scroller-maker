@@ -1,9 +1,9 @@
-<section class="ssm-app ssm-light-text">
-    <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered" id="ssm-comp-choice-current">
+<section class="ssm-app">
+    <div class="ssm-input-grid ssm-light-text ssm-grid-items-centered ssm-p10" id="ssm-comp-choice-current">
         <label for="ssm-comp-choice-current">{{localize "SSM.DefaultSceneCompendiumMenu.CurrentLabel"}}</label>
-        <input type="text" name="ssm-comp-choice-current" value="{{current}}"/>        
+        <input class="ssm-light-text" type="text" name="ssm-comp-choice-current" value="{{current}}"/>        
     </div>
-    <form class="ssm-config-radio-select ssm-light-text">
+    <form class="ssm-config-radio-select ssm-light-text ssm-p10">
         {{#if noRadio}}
             <div class="ssm-radio-w-label">
                 <input type="radio" name="ssm-comp-choice" id="create-comp" value="1"/>
@@ -27,7 +27,7 @@
             <div class="ssm-text-w-label">
                 <div></div>
                 <label for="ssm-create-name">{{localize "SSM.DefaultSceneCompendiumMenu.UI.CreateInputLabel"}}</label>
-                <input type="text" name="ssm-create-name" value=""/>
+                <input class="ssm-light-text" type="text" name="ssm-create-name" value=""/>
             </div>
         {{/if}}
             
@@ -42,10 +42,10 @@
             </div>
             <div class="ssm-radio-w-label">
                 <div></div>
-                <select name="z_comp_sel" id="z_comp_sel">
-                    <option value="no_selection">{{defaultSelect}}</option>
+                <select class="ssm-light-text" name="z_comp_sel" id="z_comp_sel">
+                    <option class="ssm-dark-background ssm-light-text">{{defaultSelect}}</option>
                     {{#each compendiumList}}
-                        <option value="{{this}}"
+                        <option class="ssm-dark-background ssm-light-text" value="{{this}}"
                         {{#if (comp_equal ../compendium)}}
                             selected
                         {{/if}}
@@ -56,8 +56,8 @@
         {{/if}}
 
         {{#if submitRadio}}
-            <footer class="ssm-span2 ssm-p10">
-                <button type="submit" name="submit" class="ssm-light-text ssm-no-border ssm-button-250px">
+            <footer class="ssm-span2 ssm-flex-j-center ssm-p10">
+                <button type="submit" name="submit" class="ssm-light-background ssm-dark-text ssm-no-border ssm-button-250px">
                     <i class="far fa-save"></i> {{localize "SSM.SaveDefault"}}
                 </button>
             </footer>
