@@ -3,6 +3,35 @@
 # scene-scroller-maker
 Tools to modify or divide scenes and images.
 
+# V2.3.1
+
+Added a very niche method to an API for this module.  It allows the divide-scene feature to be run programmatically ONLY IF division data is stored in flags beforehand.  Here is an example demonstrating how to use it:
+
+```js
+const ssm = game.modules.get("scene-scroller-maker").API
+const data = {
+  imgPath: "\\CustomAssets\\Maps\\Test Folder [A]",
+  newCompendium: true,
+  compendiumName: "TEST"
+}
+
+ssm.processFlaggedDivisionData(data);
+```
+
+```js
+/**
+ * 
+ * @param {object}          options                 Options to define where images are saved and where scenes are created.
+ *                                                  Images will default to image settings, which must be set if argument is not provided.
+ *                                                  Scenes will be created in Foundry core scene folder, unless compendium argument(s) are provided.
+ * @param {string|boolean}  options.imgPath         Optional: File path to desired image storage location
+ * @param {boolean}         options.newCompendium   Optional: TRUE to create a new compendium.  Defaults to FALSE.
+ * @param {string|boolean}  options.compendiumName  Optional: Name of a new or existing compendium.  Defaults to FALSE.  
+ * @returns {void}
+ */
+export async function processFlaggedDivisionData({imgPath = false, newCompendium = false, compendiumName= false} = {})
+```
+
 # V2.0
 The V2.0 release enhances existing functionality introduced with V1.0 by:
  - adding module settings to define a default compendium (divide scene tool)
