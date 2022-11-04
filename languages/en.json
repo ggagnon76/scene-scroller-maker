@@ -156,10 +156,9 @@
         "T2P_Errors" : {
             "Clipper_Union" : "Union of vision polygons failed in #generateDrawingPolygon().",
             "title" : "Review generated area.",
-            "content": "<p>Click YES to continue if the shape of the polygon is correct.</p><p>Otherwise, click NO to abort execution.</p>"
-        },
-        "T2P_PolyNotAdjacent" : {
-            "Clipper_Union" : "Union of vision polygons failed in #generateDrawingPolygon().  Polygons need to form one single polygon."
+            "content": "<p>Click YES to continue if the shape of the polygon is correct.</p><p>Otherwise, click NO to abort execution.</p>",
+            "ClipperIntersectErr" : "The Clipper Library solution to union the polygons produced a solution with separate polygons.  The algorithm will proceed with the first, but your results may not be as expected.",
+            "ClipperDiffErr" : "The Clipper Library solution to difference the polygons produced a solution with separate polygons.  The algorithm will proceed with the first, but your results may not be as expected."
         },
         "Crop" : {
             "notOverlapping" : "The drawn shapes produced two or more groups of shapes.  All shapes must be drawn to overlap at least one preceding shape to produce one continous area of coverage."

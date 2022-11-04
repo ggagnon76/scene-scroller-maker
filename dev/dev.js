@@ -1,4 +1,6 @@
-import { isColliding, unionPolygons } from "../lib/functions.js";
+import { isColliding } from "../lib/functions.js";
+
+function unionPolygons() {}  // Placeholder.
 
 /** Form application that will be invoked when a user wants to link a scene to another.
  *  The form will request the user choose a compendium and then the scene.
