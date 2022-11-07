@@ -1,6 +1,4 @@
-import { isColliding } from "../lib/functions.js";
-
-function unionPolygons() {}  // Placeholder.
+import { isColliding, getSceneBoundsAsClipper, clipperIntersection } from "../lib/functions.js";
 
 /** Form application that will be invoked when a user wants to link a scene to another.
  *  The form will request the user choose a compendium and then the scene.
@@ -84,6 +82,7 @@ function unionPolygons() {}  // Placeholder.
 /**
  * Function that calculates the coordinates for a new point that is a distance perpendicular to an
  * existing point on the line.
+ * (Used to create link sprites on screen)
  * @param {number} slope    The slope of the line
  * @param {object} point    Object containing coordinates of a point, ie: {x: <number>, y: <number>}
  * @param {number} distance Distance of the new point from the existing line.
@@ -109,7 +108,7 @@ function offsetPointFromSlope(slope, point, distance) {
      * @param {object} center   // {x: <number>, y: <number>}
      * @returns 
      */
-export function createLinkGraphic(coord, center){
+export function _createLinkGraphic(coord, center, divID, divisionID){
         
     const d = 50; // pixels perpendicular
 
@@ -127,9 +126,6 @@ export function createLinkGraphic(coord, center){
         p1 = {x: center.x + d, y: center.y};
         p2 = {x: center.x - d, y: center.y};
     }
-
-    const deleteLink = this._deleteLink.bind(this);
-
     const link = new PIXI.LegacyGraphics();
     link.beginFill(0x000000);
     link.drawCircle(p1.x, p1.y, 30);
@@ -144,11 +140,25 @@ export function createLinkGraphic(coord, center){
     link.drawCircle(p2.x, p2.y, 10);
     link.endFill();
     link.interactive = true;
-    link.on('click', deleteLink);
+    link.on('click', this.deleteLink);
+    link.divID = [divID, divisionID];
 
     this.linkContainer.addChild(link);
 
     return link;
+}
+
+export function deleteDivLinks(divID) {
+    const div = this.divisions.filter(d => d.drawingID === divID);
+    for (const link of this.links) {
+        const hasDiv = link[1].divs.filter(d => d.drawingID === divID);
+        if ( hasDiv.length ) {
+            this.links.delete(link[0]);
+            const linkGraphic = this.linkContainer.children.filter(c => c.divID.includes(divID))[0];
+            this.linkContainer.removeChild(linkGraphic);
+            linkGraphic.destroy(true);
+        }
+    }
 }
 
 export function _deleteLink(event) {
@@ -267,7 +277,10 @@ export async function _embedLinkFlags(pack) {
      */
 export function _createLinks(div) {
 
-    if( !this.links.size ) return;
+    this.deleteLink = _deleteLink.bind(this);
+    this.createLinkGraphic = _createLinkGraphic.bind(this);
+
+    if( this.divisions.length < 2 ) return;
     // Start iterating over previous divisions
     next_division:
     for (const division of this.divisions) {
@@ -295,7 +308,7 @@ export function _createLinks(div) {
             
             for (const w of division.wallsInDiv) {
                 if ( wall.id !== w.id ) continue;
-                const link = this.createLinkGraphic(wall.coords, wall.center);
+                const link = this.createLinkGraphic(wall.coords, wall.center, div.drawingID, division.drawingID);
                 const linkObj = {
                     link: link,
                     divs: [div, division]
@@ -309,15 +322,14 @@ export function _createLinks(div) {
         // Find adjacent edges that don't have walls.
 
         function polyCoordSlope(polygonPath) {
-            const clipperPolygon = Array.isArray(polygonPath[0]) ? polygonPath[0] : polygonPath;
             const coordSlopes = new Set();
-            for (let i=0; i < clipperPolygon.length; i++) {
-                const j = i === clipperPolygon.length - 1 ? 0 : i + 1;
+            for (let i=0; i < polygonPath.length; i++) {
+                const j = i === polygonPath.length - 1 ? 0 : i + 1;
                 const obj = {
-                    x: clipperPolygon[i].X,
-                    y: clipperPolygon[i].Y,
-                    slope: slope([clipperPolygon[i].X, clipperPolygon[i].Y], 
-                        [clipperPolygon[j].X, clipperPolygon[j].Y]).toString()
+                    x: polygonPath[i].X,
+                    y: polygonPath[i].Y,
+                    slope: slope([polygonPath[i].X, polygonPath[i].Y], 
+                        [polygonPath[j].X, polygonPath[j].Y]).toString()
                 }
 
                 coordSlopes.add(JSON.stringify(obj));
@@ -329,11 +341,13 @@ export function _createLinks(div) {
             const coordSlopes = new Set();
             for (const wall of wallArray) {
                 const doc = wall.document
+                // Wall and slope from one end
                 const obj1 = {
                     x: doc.c[0],
                     y: doc.c[1],
                     slope: slope([doc.c[0], doc.c[1]], [doc.c[2], doc.c[3]]).toString()
                 }
+                // Wall and slope from other end
                 const obj2 = {
                     x: doc.c[2],
                     y: doc.c[3],
@@ -347,16 +361,14 @@ export function _createLinks(div) {
         }
 
         // UnionedSlopes is a SET containing coordinate + slope pairs for every point around the perimeter of the two divisions after being unioned.
-        const unioned = unionPolygons(div.clipperPathFinal, division.clipperPathFinal, true);
+        const unioned = clipperIntersection(getSceneBoundsAsClipper(), [div.clipperPathFinal, division.clipperPathFinal])
         const unionedSlopes = polyCoordSlope(unioned);
 
         // divSlopes is a SET containing coordinate + slope pairs for every point around the perimeter of div.
-        const divPath = Array.isArray(div.clipperPathFinal[0]) ? div.clipperPathFinal[0] : div.clipperPathFinal;
-        const divSlopes = polyCoordSlope(divPath);
+        const divSlopes = polyCoordSlope(div.clipperPathFinal);
 
         // divisionSlopes is a SET containing coordinate + slope pairs for every point around the perimeter of division.
-        const divisionPath = Array.isArray(division.clipperPathFinal[0]) ? division.clipperPathFinal[0] : division.clipperPathFinal;
-        const divisionSlopes = polyCoordSlope(divisionPath);
+        const divisionSlopes = polyCoordSlope(division.clipperPathFinal);
 
         // coordSlopes is a combined SET containing coordinate + slope pairs for every point around the perimeter of div and division.
         const coordSlopes = new Set([...divSlopes, ...divisionSlopes]);
@@ -367,12 +379,11 @@ export function _createLinks(div) {
         // Produce coordinates + slopes for each end of each wall.
         const wallsInDiv = [];
         const allWallsData = canvas.walls.placeables;
-        const path = Array.isArray(unioned[0]) ? unioned[0] : unioned;
         for (const wall of allWallsData) {
             const pt1 = new ClipperLib.IntPoint(wall.document.c[0], wall.document.c[1]);
             const pt2 = new ClipperLib.IntPoint(wall.document.c[2], wall.document.c[3]);
-            if (    ClipperLib.Clipper.PointInPolygon(pt1, path) === 0 &&
-                    ClipperLib.Clipper.PointInPolygon(pt2, path) === 0 ) continue;
+            if (    ClipperLib.Clipper.PointInPolygon(pt1, unioned) === 0 &&
+                    ClipperLib.Clipper.PointInPolygon(pt2, unioned) === 0 ) continue;
 
             wallsInDiv.push(wall);                            
         }
@@ -416,7 +427,7 @@ export function _createLinks(div) {
             x: (wallCoords[0] + wallCoords[2]) / 2,
             y: (wallCoords[1] + wallCoords[3]) / 2
         }
-        const link = this.createLinkGraphic(wallCoords, midpoint);
+        const link = this.createLinkGraphic(wallCoords, midpoint, div.drawingID, division.drawingID);
         const linkObj = {
             link: link,
             divs: [div, division]
