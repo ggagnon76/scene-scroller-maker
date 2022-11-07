@@ -1,3 +1,4 @@
+import { ModuleName } from "../ssm-launch.js";
 import { isColliding, getSceneBoundsAsClipper, clipperIntersection } from "../lib/functions.js";
 
 /** Form application that will be invoked when a user wants to link a scene to another.
@@ -175,8 +176,7 @@ export async function _embedLinkFlags(pack) {
         return;
     }
     if ( !this.links.size ) return;
-    let subSceneFlagData = foundry.utils.deepClone(game.modules.get("scene-scroller").struct.compendiumSceneFlags);
-    const subSceneFlagKeys = Object.keys(subSceneFlagData);
+    const subSceneFlagKeys = Object.keys(game.modules.get("scene-scroller").struct.compendiumSceneFlags);
     const subSceneChildrenKeys = Object.keys(game.modules.get("scene-scroller").struct.subSceneChildrenFlags);
 
     /* Step 1: Begin by iterating all the links to save data in sub-scene flags */
@@ -194,7 +194,10 @@ export async function _embedLinkFlags(pack) {
             const otherScnID = pack.index.getName(otherDiv.subSceneName)._id;
             const otherUUID = `Compendium.${clctn}.${otherScnID}`;
             // Second key temporarily holds div name, to make it easier to find div in next step.
-            subSceneChildrenFlagData.push({[subSceneChildrenKeys[0]]: otherUUID, [subSceneChildrenKeys[1]]: otherDiv.subSceneName});
+            subSceneChildrenFlagData.push({
+                [subSceneChildrenKeys[0]]: otherUUID,
+                [subSceneChildrenKeys[1]]: otherDiv.subSceneName
+            });
             await subScene.setFlag(ModuleName, subSceneFlagKeys[0], subSceneChildrenFlagData);
         }
     }
@@ -209,7 +212,7 @@ export async function _embedLinkFlags(pack) {
         const scn_id = pack.index.getName(div.subSceneName)._id;
         const uuid = `Compendium.${clctn}.${scn_id}`;
         const subScene = await fromUuid(uuid);
-        subSceneFlagData = subScene.getFlag(ModuleName, subSceneFlagKeys[0]);
+        let subSceneFlagData = subScene.getFlag(ModuleName, subSceneFlagKeys[0]);
 
         for (const data of subSceneFlagData) {
             for (const division of this.divisions) {
@@ -239,6 +242,9 @@ export async function _embedLinkFlags(pack) {
             y: div.boundingBox.sceneY - minY,
         }
         await subScene.setFlag(ModuleName, subSceneFlagKeys[2], coords);
+
+        // Polygons for the parent sub-scene
+        await subScene.setFlag(ModuleName, subSceneFlagKeys[3], div.boundingBox.polygon)
     }
 
     // Coords for all the children sub-scenes
@@ -248,7 +254,7 @@ export async function _embedLinkFlags(pack) {
         const subScene = await fromUuid(uuid);
 
         // Get an array of children
-        subSceneFlagData = subScene.getFlag(ModuleName, subSceneFlagKeys[0]);
+        let subSceneFlagData = subScene.getFlag(ModuleName, subSceneFlagKeys[0]);
         // Get the bounds for the parent
         const parentBounds = subScene.getFlag(ModuleName, subSceneFlagKeys[1]);
         for (const data of subSceneFlagData) {
