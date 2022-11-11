@@ -3,6 +3,27 @@
 # scene-scroller-maker
 Tools to modify or divide scenes and images.
 
+# V2.4
+
+Updated `processFlaggedDivisionData()` to add a `folderInScenes` argument.  This allows the algorithm to save scenes into an existing (or it will create one) folder in the Scenes sidebar.
+
+```js
+**
+ * 
+ * @param {object}          options                 Options to define where images are saved and where scenes are created.
+ *                                                  Images will default to compendium settings, which must be set if argument is not provided.
+ *                                                  Scenes will be created in Foundry core scene folder, unless compendium argument(s) are provided.
+ * @param {string|boolean}  options.imgPath         Optional: File path to desired image storage location
+ * @param {boolean}         options.newCompendium   Optional: TRUE to create a new compendium.  Defaults to FALSE.
+ * @param {string|boolean}  options.compendiumName  Optional: Name of a new or existing compendium.  Defaults to FALSE.
+ * @param {string|boolean}  options.folderInScenes  Optional: Name (existing or not) of a folder in the Scenes tab to save the new sub-scenes.
+ * @returns {void}
+ */
+export async function processFlaggedDivisionData({imgPath = false, newCompendium = false, compendiumName= false, folderInScenes = false} = {})
+```
+
+This release also improves the crop tools.  In prior versions, the behavior of polygons depended on being drawn clockwise or counterclockwise.  Now it doesn't matter.
+
 # V2.3.1
 
 Added a very niche method to an API for this module.  It allows the divide-scene feature to be run programmatically ONLY IF division data is stored in flags beforehand.  Here is an example demonstrating how to use it:
