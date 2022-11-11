@@ -64,7 +64,8 @@
             "AlreadyCompNameErr" : "newCompendium argument set to TRUE, but compendium with compendiumName argument already exists.  Aborting!",
             "CompCreateFailErr" : "Unexpected core Foundry error trying to create new compendium with provided compendiumName argument.  Aborting!",
             "NoExistingCompErr" : "newCompendium argument set to FALSE, but compendium with compendiumName argument doesn't exist.  Aborting!",
-            "NoFlagDataErr" : "No division data found in scene flags.  Aborting!"
+            "NoFlagDataErr" : "No division data found in scene flags.  Aborting!",
+            "FolderAndCompendiumErr" : "compendiumName and folderInScenes have arguments.  Use one or the other.  Aborting!"
         },
         "ConvertImageUI" : {
             "Title" : "Image File Picker",
