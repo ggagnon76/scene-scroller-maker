@@ -71,21 +71,3 @@ Hooks.once('ready', () => {
 Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
     populateMenuButtons(toolGroup);
 });
-
-/** Start of Development code.  Not released yet. */
-Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
-    contextOptions.push({
-        name: 'SSM.ToggleSSM',
-        icon: "<i class='fas fa-puzzle-piece'></i>",
-        condition: li => game.user.isGM && game.scenes.get(li.data("sceneId")).active,
-        callback: () => {
-            if ( !game.user.isGM ) {
-                game.settings.set(ModuleName, "SSM_MenuToggle", false);
-            } else {
-                const setting = game.settings.get(ModuleName, "SSM_MenuToggle")
-                game.settings.set(ModuleName, "SSM_MenuToggle", !setting);
-            }
-        }
-    })
-})
-/** End of Development code. */
