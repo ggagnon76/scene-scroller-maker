@@ -72,7 +72,6 @@ Hooks.on('getModuleToolGroups', (controlManager, toolGroup) => {
     populateMenuButtons(toolGroup);
 });
 
-/** Start of Development code.  Not released yet. */
 Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
     contextOptions.push({
         name: 'SSM.ToggleSSM',
@@ -88,4 +87,3 @@ Hooks.on('getSceneNavigationContext', (html, contextOptions) => {
         }
     })
 })
-/** End of Development code. */
