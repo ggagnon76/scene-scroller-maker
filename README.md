@@ -3,6 +3,17 @@
 # scene-scroller-maker
 Tools to modify or divide scenes and images.
 
+# V2.5
+
+- Requires module Lib-DF-Buttons v1.4.2
+- Although never intended to be a game-time module, by request,  a setting has been added that will hide the Scene Scroller Maker buttons so they don't get in the way during play.
+- A second quicker option to toggle the visibility of the buttons is available by right-clicking the active scene in the scene navigation bar and selecting `Toggle SSM Menu`:
+
+![SSM Menu Toggle](/assets/SSM_Menu_Toggle.png)
+
+- The buttons should no longer appear on any client other than the GM.
+- With the latest version of lib-df-buttons, it is now possible to activate the `modification of images` group of buttons even when there is no active scene.  The 'modification of scenes' group of buttons will throw a notification error if there is no active scene.
+
 # V2.4
 
 Updated `processFlaggedDivisionData()` to add a `folderInScenes` argument.  This allows the algorithm to save scenes into an existing (or it will create one) folder in the Scenes sidebar.
