@@ -209,6 +209,7 @@
                 "SelectLabel" : "Select an existing Scene Compendium",
                 "CreateInputLabel" : "New compendium name: "
             }
-        }
+        },
+        "hasNoCanvasScene" : "These utilities require an active scene.  Aborting."
     }
 }
